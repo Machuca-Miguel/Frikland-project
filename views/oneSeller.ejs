@@ -1,0 +1,96 @@
+<%- include("navbar") %>
+<main class="container-fluid">
+  <div class="row">
+    <h1 class="col-12 text-center mb-5">
+      Seller <%= finalResult.name %> profile
+    </h1>
+    <div class="col-12 d-flex justify-content-center">
+      <div class="card mb-3 allSellersCard p-3" style="max-width: 640px">
+        <div class="row g-0">
+          <div class="col-md-4 mb-3">
+            <img
+              src="/images/avatars/<%= finalResult.profile_img %>"
+              class="img-fluid rounded-start allSellerImg"
+              alt="..."
+            />
+          </div>
+          <div class="col-md-8 mb-3">
+            <div class="card-body">
+              <h5 class="card-title">
+                <%= finalResult.name %> <%= finalResult.last_name %>
+              </h5>
+              <hr class="allSellersHr" />
+              <p class="card-text">Contact:</p>
+              <ul>
+                <li>
+                  <p class="card-text">Email: <%= finalResult.email %></p>
+                </li>
+                <li>
+                  <p class="card-text">
+                    Phone number: <%= finalResult.phone_number %>
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12">
+            <p class="card-text">
+              Description: <br />
+              <%= finalResult.description %>
+            </p>
+            <div class="col-12 d-flex flex-row justify-content-end gap-1">
+              <p class="card-text flex-grow-1 mb-0 align-self-end">
+                <small class="text-dark">Last updated 23 mins ago</small>
+              </p>
+              <a
+                href="/sellers/modifySeller/<%= finalResult.seller_id %>"
+                class="btn btn-primary allSellerButton align-self-end"
+              >
+                Modify</a
+              >
+              <a
+                href="/sellers/deleteSeller/<%= finalResult.seller_id %>"
+                class="btn btn-primary allSellerButton align-self-end"
+              >
+                Delete</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 text-start ps-5 my-3">
+      <% if(finalResult.products.length != 0 ){ %>
+      <h2>Products:</h2>
+      <hr class="allSellersHr" />
+      <% } %>
+    </div>
+    <div class="col-12 d-flex flex-wrap justify-content-center gap-3">
+      <% finalResult.products.forEach(product => { %>
+
+      <div class="card allSellersCard" style="max-width: 18rem">
+        <img
+          src="/images/products/<%= product.product_img %>"
+          class="card-img-top allSellerImg"
+          alt="..."
+        />
+        <div class="card-body pt-0 d-flex flex-column align-items-start w-100">
+          <h5 class="card-title"><%= product.product_name %></h5>
+          <hr class="allSellersHr mt-0" />
+          <p class="card-text"><%= product.category %></p>
+          <p class="card-text"><%= product.description %></p>
+          <p class="card-text text-end"><%= product.price %> €</p>
+          <a
+            href="/products/<%= product.product_id %>"
+            class="btn btn-primary allSellerButton align-self-end"
+          >
+            More info</a
+          >
+        </div>
+      </div>
+
+      <% }) %>
+    </div>
+  </div>
+</main>
+<%- include("footer") %>
