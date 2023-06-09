@@ -1,0 +1,83 @@
+<%- include("navbar") %>
+<main class="container-fluid">
+  <div class="row align-items-center justify-content-center">
+    <h1 class="col-12 text-center">Home</h1>
+    <form
+      action="/sellers/modifySeller/<%= result[0].seller_id %>"
+      method="post"
+      enctype="multipart/form-data"
+      class="col-4"
+    >
+      <div class="mb-3 d-flex flex-column align-items-center">
+        <!-- Name -->
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control inputEditSeller"
+            id="name"
+            placeholder="Name"
+            name="name"
+            value="<%= result[0].name %>"
+          />
+          <label for="name">Name</label>
+        </div>
+        <!-- Last Name -->
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control inputEditSeller"
+            id="last_name"
+            placeholder="Last name"
+            name="last_name"
+            value="<%= result[0].last_name %>"
+          />
+          <label for="last_name">Last name</label>
+        </div>
+
+        <!-- Phone number -->
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control inputEditSeller"
+            id="phone_number"
+            placeholder="Phone number"
+            name="phone_number"
+            value="<%= result[0].phone_number %>"
+          />
+          <label for="phone_number">Phone number</label>
+        </div>
+
+        <!-- Description -->
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control inputEditSeller"
+            placeholder="Self description"
+            id="description"
+            name="description"
+            value="<%= result[0].description %>"
+          />
+          <label for="description">Description</label>
+        </div>
+
+        <!-- Profile Img -->
+        <div class="mb-3 inputFile">
+          <label for="img" class="form-label"></label>
+          <input class="form-control" type="file" id="img" name="img" />
+        </div>
+
+        <h4 class="text-danger">
+          <%= typeof message != 'undefined' ? message : null %>
+        </h4>
+
+        <button
+          type="submit"
+          class="btn btn-primary align-self-end allSellerButton submitForm"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</main>
+<%- include("footer") %>

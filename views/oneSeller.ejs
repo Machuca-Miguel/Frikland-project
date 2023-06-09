@@ -1,11 +1,15 @@
 <%- include("navbar") %>
 <main class="container-fluid">
   <div class="row">
-    <h1 class="col-12 text-center mb-5">
-      Seller <%= finalResult.name %> profile
-    </h1>
+    <div class="col-12 text-center d-flex flex-column align-items-center mb-0">
+      <h1 class="mb-0">Seller profile</h1>
+      <hr class="mt-o mb-5 w-50" />
+    </div>
     <div class="col-12 d-flex justify-content-center">
-      <div class="card mb-3 allSellersCard p-3" style="max-width: 640px">
+      <div
+        class="card mb-3 allSellersCard p-3"
+        style="max-width: 35vw; height: fit-content"
+      >
         <div class="row g-0">
           <div class="col-md-4 mb-3">
             <img
@@ -43,13 +47,19 @@
                 <small class="text-dark">Last updated 23 mins ago</small>
               </p>
               <a
+                href="/products/addProduct/<%= finalResult.seller_id %>"
+                class="btn btn-primary allSellerButton align-self-end"
+              >
+                Add Product</a
+              >
+              <a
                 href="/sellers/modifySeller/<%= finalResult.seller_id %>"
                 class="btn btn-primary allSellerButton align-self-end"
               >
                 Modify</a
               >
               <a
-                href="/sellers/deleteSeller/<%= finalResult.seller_id %>"
+                href="/sellers/logicDeleteSeller/<%= finalResult.seller_id %>"
                 class="btn btn-primary allSellerButton align-self-end"
               >
                 Delete</a
@@ -61,7 +71,17 @@
     </div>
     <div class="col-12 text-start ps-5 my-3">
       <% if(finalResult.products.length != 0 ){ %>
-      <h2>Products:</h2>
+      <div class="col-12 d-flex justify-content-between">
+        <h2 class="mb-0">Products:</h2>
+        <a href="/products/addProduct/<%= finalResult.seller_id %>"
+          ><button
+            class="btn btn-sm btn-outline-secondary bg-none registerButton me-1 addProductButton"
+          >
+            Add Product
+          </button></a
+        >
+      </div>
+
       <hr class="allSellersHr" />
       <% } %>
     </div>
@@ -71,7 +91,7 @@
       <div class="card allSellersCard" style="max-width: 18rem">
         <img
           src="/images/products/<%= product.product_img %>"
-          class="card-img-top allSellerImg"
+          class="card-img-top productImg mb-2"
           alt="..."
         />
         <div class="card-body pt-0 d-flex flex-column align-items-start w-100">
@@ -81,10 +101,10 @@
           <p class="card-text"><%= product.description %></p>
           <p class="card-text text-end"><%= product.price %> €</p>
           <a
-            href="/products/<%= product.product_id %>"
+            href="/products/modifyProduct/<%= product.product_id %>"
             class="btn btn-primary allSellerButton align-self-end"
           >
-            More info</a
+            Edit</a
           >
         </div>
       </div>

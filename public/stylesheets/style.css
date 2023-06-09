@@ -8,17 +8,17 @@
   width: 100%;
   margin-top: 0;
 }
+* .registerButton {
+  border-radius: 5px;
+}
+* .registerButton:hover {
+  background-color: #dc8556;
+  border: 1px outset black;
+}
 
 /* Navbar */
 nav .navbarTitle {
   font-family: "Eagle Lake", cursive;
-}
-nav .registerButton {
-  border-radius: 5px;
-}
-nav .registerButton:hover {
-  background-color: #dc8556;
-  border: 1px outset black;
 }
 
 /* Main */
@@ -28,7 +28,6 @@ main {
   background-image: url("../images/High_resolution_wallpaper_background_ID_77702110654-optimized.webp");
   background-size: cover;
   background-position: center;
-  filter: grayscale(0.25);
   padding: 3vh 0;
 }
 main form {
@@ -44,12 +43,21 @@ main form h4 {
   transform: scaley(0.75);
   width: 90%;
 }
-main form .inputFile {
+main form .inputFile,
+main form .selectAddProd {
   font-size: 0.85rem;
   width: 90%;
 }
 main form .submitForm {
   transform: translate(-30px);
+}
+main form .inputEditSeller {
+  transform: scaleY(1.25);
+}
+main form .selectAddProd {
+  height: 3rem;
+  width: 90%;
+  border-radius: 10px;
 }
 main .allSellersCard {
   background-color: rgba(255, 255, 255, 0.046);
@@ -71,6 +79,11 @@ main .allSellerButton {
 main .allSellerButton:hover {
   background-color: #dc8556;
   border: 1px outset black;
+}
+main .addProductButton {
+  background-color: #c78867;
+  color: black;
+  border-color: black;
 }
 
 /* Footer */

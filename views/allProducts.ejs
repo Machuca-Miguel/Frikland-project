@@ -1,0 +1,31 @@
+<%- include("navbar") %>
+<main class="container-fluid">
+  <div class="row">
+    <div class="col-12 text-center"><h1>All Our Sellers</h1></div>
+    <div class="col-12 d-flex flex-wrap gap-3 justify-content-center py-2 px-5">
+      <% result.forEach((product) => {%>
+      <div class="card allSellersCard" style="max-width: 18rem">
+        <img
+          src="/images/avatars/<%= product.product_img %>"
+          class="card-img-top allSellerImg"
+          alt="..."
+        />
+        <div class="card-body pt-0 d-flex flex-column align-items-start w-100">
+          <h5 class="card-title"><%= product.name %></h5>
+          <hr class="allSellersHr mt-0" />
+          <p class="card-text"><%= product.category %></p>
+          <p class="card-text"><%= product.status %></p>
+
+          <p class="card-text"><%= product.price %></p>
+          <p class="card-text"><%= product.description %></p>
+
+          <a href="/" class="btn btn-primary allSellerButton align-self-end">
+            Add <i class="fa-regular fa-cart-shopping"></i
+          ></a>
+        </div>
+      </div>
+      <% })%>
+    </div>
+  </div>
+</main>
+<%- include("footer") %>
