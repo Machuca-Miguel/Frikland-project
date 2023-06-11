@@ -2,13 +2,7 @@ const { query } = require("express");
 const connectionSQL = require("../config/db");
 
 class ProductsControllers {
-  viewAddProductForm = (req, res) => {
-    let seller_id = req.params.seller_id;
-
-    console.log(seller_id);
-
-    res.render("formAddProduct", { id: seller_id });
-  };
+  
 
   AddProduct = (req, res) => {
     let { seller_id } = req.params;
@@ -51,7 +45,27 @@ class ProductsControllers {
     connectionSQL.query(sql, (err, result) => {
       if (err) throw err;
 
-      res.render("formEditProduct", { result });
+      let status_product
+
+      switch (result[0].status) {
+        case 1:
+          status_product = STATUS_1;
+          break;
+        case 2:
+          status_product = STATUS_2;
+          break;
+        case 3:
+          status_product = STATUS_3;
+          break;
+        case 4:
+          status_product = STATUS_4;
+          break;
+        case 5:
+          status_product = STATUS_5;
+          break;
+      }
+
+      res.render("formEditProduct", { result , status_product });
     });
   };
 
@@ -129,7 +143,7 @@ class ProductsControllers {
           : (prod.added_cart = null);
       });
 
-      res.render("allProducts", { result });
+      res.render("allProducts", { result , title: "Products" });
     });
   };
 
@@ -217,7 +231,7 @@ class ProductsControllers {
   viewCategoryProducts = (req, res) => {
     let category = req.params.category;
 
-    let sql = `SELECT * FROM product WHERE category = "${category}" AND deleted = 0`;
+    let sql = `SELECT * FROM product WHERE deleted = 0 AND category = "${category}"`;
 
     connectionSQL.query(sql, (error, result) => {
       if (error) throw error;
@@ -247,7 +261,7 @@ class ProductsControllers {
           : (prod.added_cart = null);
       });
 
-      res.render("allProducts", { result });
+      res.render("allProducts", { result , title:`${category}` });
     });
   };
 }

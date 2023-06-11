@@ -143,16 +143,7 @@ class SellersControllers {
     });
   };
 
-  viewFormModifySeller = (req, res) => {
-    let id = req.params.id;
-
-    let sql = `SELECT name, last_name, phone_number, description, seller_id FROM seller WHERE seller_id = ${id}`;
-
-    connectionSQL.query(sql, (err, result) => {
-      if (err) throw err;
-      res.render("formEditSeller", { result });
-    });
-  };
+  
 
   editSeller = (req, res) => {
     let id = req.params.id;

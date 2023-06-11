@@ -2,11 +2,24 @@
   box-sizing: border-box;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 
+  a {
+    text-decoration: none;
+    color: white;
+  }
+  a:hover {
+    color: white;
+  }
+
   .allSellersHr {
     border-top: 2px solid #c78867;
     opacity: 1;
     width: 100%;
     margin-top: 0;
+  }
+
+  .titleHr {
+    width: 50%;
+    opacity: 1;
   }
 
   .registerButton {
@@ -33,20 +46,30 @@
   }
 }
 /* Navbar */
-nav {
-  .navbarTitle {
-    font-family: "Eagle Lake", cursive;
-    font-size: 30px;
-    padding-right: 20px;
-  }
+
+.navbarTitle {
+  font-family: "Eagle Lake", cursive;
+  font-size: 30px;
+  padding-right: 20px;
 }
+h1 {
+  font-family: "Eagle Lake", cursive;
+  font-weight: bold;
+}
+h2 {
+  font-family: "Eagle Lake", cursive;
+}
+
 /* Main */
 main {
   min-height: calc(100vh - 71.75px - 84px);
+  margin-top: 71.75px;
+
   background-color: darkslategray;
   background-image: url("../images/High_resolution_wallpaper_background_ID_77702110654-optimized.webp");
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
 
   padding: 3vh 0;
 
@@ -96,10 +119,15 @@ main {
 
   .allSellersCard,
   .allProdCard {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(214, 213, 213, 0.2);
     backdrop-filter: blur(15px);
     color: rgb(220, 220, 220);
     border-radius: 15px;
+  }
+
+  .allProdCard {
+    max-height: 350px;
+    min-width: 400px;
   }
 
   .allSellerImg {
@@ -112,34 +140,81 @@ main {
     background-color: #c78867;
     border: 1px outset #c78867;
     border-radius: 8px;
+    color: white;
   }
 
   .allSellerButton:hover {
     background-color: #dc8556;
-    border: 1px outset black;
+    border: 1px outset white;
+  }
+  .prodAddCartButton:hover {
+    background-color: #198754;
+    color: white;
+  }
+  .prodDeleteButton:hover {
+    background-color: #dc3545;
+    color: white;
+  }
+
+  .prodEditButton:hover {
+    background-color: rgb(255, 145, 0);
+    color: white;
   }
 
   .addProductButton {
     background-color: #c78867;
-    color: black;
-    border-color: black;
+    color: white;
+    border: 1px outset #c78867;
   }
+
   .oneProdImgCont {
+    object-fit: cover;
+    object-position: center;
+    padding: 0;
+  }
+
+  .allProductImgCont {
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .allProductImg {
+    max-height: 350px;
+
+    height: 100%;
     object-fit: cover;
     object-position: center;
   }
 
   .oneProdImg {
-    border-radius: 0;
-    transform: scale(1);
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
   }
-
-  .productImg {
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+  .oneSellerproductImg {
     border-start-start-radius: 15px;
     border-top-right-radius: 15px;
+    max-height: 250px;
+  }
+  .oneSellerProductCard {
+    background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(15px);
+    color: rgb(220, 220, 220);
+    border-radius: 15px;
+  }
+  .textOneSeller {
+    color: #683b23;
+    font-weight: 600;
+  }
+  ul {
+    list-style: none; /* Remove default bullets */
+  }
+
+  .oneSellerProductCard:hover,
+  .allProdCard:hover {
+    transition: 0.3s;
+    transform: translateZ(0);
+
+    scale: 1.048;
   }
 
   .cardShoppingCart,
@@ -151,8 +226,15 @@ main {
     height: fit-content;
   }
 
-  .CurrSymbol {
+  .colorDarkOrange,
+  .nav_category {
     color: #c16e41;
+  }
+
+  .nav_category:hover,
+  .nav_category:active {
+    color: white;
+    border: none;
   }
 }
 

@@ -1,42 +1,91 @@
 <%- include("navbar") %>
 <main class="container-fluid">
   <div class="row flex-wrap gap-3 justify-content-center">
-    <h1 class="text-center col-12">All Our Products</h1>
+    <div class="col-12 text-center d-flex flex-column align-items-center mb-0">
+      <h1 class="mb-0">All Our <%= title %></h1>
+      <hr class="mb-0 mt-0 w-50" />
+    </div>
+    <ul
+      class="nav bg-dark col-12 col-md-9  justify-content-evenly border-bottom-0 nav_category "
+    >
+      <li class="nav-item nav_category">
+        <a
+          class="nav-link  colorDarkOrange nav_category"
+          aria-current="page"
+          href="/products/category/Funkos"
+          >Funkos</a
+        >
+      </li>
+      <li class="nav-item nav_category">
+        <a
+          class="nav-link colorDarkOrange nav_category"
+          href="/products/category/Comics"
+          >Comics</a
+        >
+      </li>
+      <li class="nav-item nav_category">
+        <a
+          class="nav-link  colorDarkOrange nav_category"
+          href="/products/category/Board Games"
+          >Board Games</a
+        >
+      </li>
+      <li class="nav-item nav_category">
+        <a
+          class="nav-link  colorDarkOrange nav_category"
+          href="/products/category/Merchandising"
+          >Merchandising</a
+        >
+      </li>
+      <li class="nav-item nav_category">
+        <a
+          class="nav-link  colorDarkOrange nav_category"
+          href="/products/category/Clothes"
+          >Clothes</a
+        >
+      </li>
+    </ul>
+
     <% result.forEach((product) => {%>
 
     <div
-      class="card allProdCard <%= product.added_cart %> col-12 col-md-5 col-lg-3 p-0"
+      class="card allProdCard <%= product.added_cart %> col-11 col-sm-10 col-md-8 col-lg-6 col-xl-4 col-xxl-3 p-0 "
     >
       <div class="row g-0 h-100">
-        <div class="col-md-6 h-100 ">
-          <img
-            src="/images/products/<%= product.product_img %>"
-            class="img-fluid rounded-start productImg h-100"
-            alt="Product image"
-          />
+        <div class="col-md-6  allProductImgCont">
+          <a href="/products/oneProduct/<%= product.product_id %>">
+            <img
+              src="/images/products/<%= product.product_img %>"
+              class="img-fluid rounded-start allProductImg h-100"
+              alt="Product image"
+            />
+          </a>
         </div>
-        <div class="col-md-6 h-100">
+        <div class="col-md-6 p-0  ">
           <div class="card-body h-100 d-flex flex-column">
-            <h5 class="card-title mb-0"><%= product.product_name %></h5>
+            <h5 class="card-title mb-0 text-white">
+              <%= product.product_name %>
+            </h5>
             <hr class="allSellersHr mt-0" />
             <p class="card-text">
-              Category: <br />
+              <span class="textOneSeller">Category:</span> <br />
               &nbsp; &nbsp; <%= product.category %>
             </p>
             <p class="card-text">
-              Status: <br />
+              <span class="textOneSeller">Status:</span> <br />
               &nbsp; &nbsp; <%= product.status %>
             </p>
 
             <p class="card-text flex-fill">
-              Description: <br />
+              <span class="textOneSeller">Description:</span> <br />
               &nbsp; &nbsp; <%= product.description %>
             </p>
 
             <div class="d-flex justify-content-between">
               <p class="mb-0 "><%= product.added_cart %></p>
-              <p class="card-text text-end fs-5">
-                <%= product.price %> <span class="CurrSymbol fs-5"> €</span>
+              <p class="card-text text-end mb-2 fs-5">
+                <%= product.price %>
+                <span class="colorDarkOrange fs-5"> €</span>
               </p>
             </div>
             <div
@@ -46,13 +95,13 @@
 
               <a
                 href="/products/oneProduct/<%= product.product_id %>"
-                class="btn btn-primary allSellerButton d-flex align-items-end p-2 <%= product.added_cart %>"
+                class="btn allSellerButton d-flex align-items-end p-2 <%= product.added_cart %>"
               >
                 More Info</a
               >
               <a
                 href="/products/addToCart/<%= product.product_id %>"
-                class="btn btn-primary allSellerButton d-flex align-items-end <%= product.added_cart %>"
+                class="btn btn-success prodAddCartButton allSellerButton d-flex align-items-end <%= product.added_cart %>"
               >
                 Add &nbsp;
                 <span class="material-symbols-outlined">
@@ -67,4 +116,5 @@
     <% })%>
   </div>
 </main>
+
 <%- include("footer") %>

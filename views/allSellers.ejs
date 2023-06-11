@@ -1,7 +1,10 @@
 <%- include("navbar") %>
 <main class=" container-fluid">
   <div class="row">
-    <div class="col-12 text-center"><h1>All Our Sellers</h1></div>
+    <div class="col-12 text-center d-flex flex-column align-items-center mb-0">
+      <h1 class="mb-0">Our Sellers</h1>
+      <hr class="mb-5 mt-0  titleHr" />
+    </div>
     <div class="col-12 d-flex flex-wrap gap-3 justify-content-center py-2 px-5">
       <% result.forEach((profile) => {%>
       <div class="card allSellersCard " style="max-width: 18rem;">
@@ -19,7 +22,7 @@
           <p class="card-text flex-fill"><%= profile.phone_number %></p>
           <a
             href="/sellers/oneSeller/<%= profile.seller_id %>"
-            class="btn btn-primary allSellerButton align-self-end"
+            class="btn btn-secondary allSellerButton align-self-end"
           >
             More info</a
           >

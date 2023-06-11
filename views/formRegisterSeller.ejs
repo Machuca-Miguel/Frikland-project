@@ -1,7 +1,10 @@
 <%- include("navbar") %>
 <main class="container-fluid">
   <div class="row align-items-center justify-content-center">
-    <h1 class="col-12 text-center">New seller registration</h1>
+    <div class="col-12 text-center d-flex flex-column align-items-center mb-0">
+      <h1 class="mb-0">New Sellers Registration</h1>
+      <hr class="mb-5 mt-0  titleHr" />
+    </div>
     <form
       action="/sellers/registerNewSeller"
       method="post"
@@ -98,7 +101,7 @@
           </div>
           <button
             type="submit"
-            class="btn btn-primary align-self-end allSellerButton "
+            class="btn prodAddCartButton btn-success align-self-end allSellerButton "
           >
             Submit
           </button>

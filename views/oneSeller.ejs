@@ -2,10 +2,12 @@
 <main class="container-fluid">
   <div class="row">
     <div class="col-12 text-center d-flex flex-column align-items-center mb-0">
-      <h1 class="mb-0">Seller profile</h1>
-      <hr class="mt-o mb-5 w-50" />
+      <h1 class="mb-0">
+        <%= finalResult.name %> <%= finalResult.last_name %> profile
+      </h1>
+      <hr class="mb-5 mt-0  titleHr" />
     </div>
-    <div class="col-12 d-flex justify-content-center">
+    <div class="col-12 d-flex justify-content-center mb-3">
       <div class="card  allSellersCard p-3 col-4" style="height: fit-content">
         <div class="row g-0">
           <div class="col-md-4 mb-3">
@@ -16,101 +18,322 @@
             />
           </div>
           <div class="col-md-8 mb-3">
-            <div class="card-body">
+            <div class="card-body pt-0">
               <h2 class="card-title">
                 <%= finalResult.name %> <%= finalResult.last_name %>
               </h2>
-              <hr class="allSellersHr" />
-              <p class="card-text">Contact:</p>
+              <hr class="allSellersHr  mb-1" />
+              <p class="card-text mb-1">
+                <span class="textOneSeller">Contact:</span>
+              </p>
               <ul>
                 <li>
-                  <p class="card-text">Email: <%= finalResult.email %></p>
+                  <p class="card-text">
+                    <span class="textOneSeller">Email:</span> <%=
+                    finalResult.email %>
+                  </p>
                 </li>
                 <li>
                   <p class="card-text">
-                    Phone number: <%= finalResult.phone_number %>
+                    <span class="textOneSeller">Phone number:</span> <%=
+                    finalResult.phone_number %>
                   </p>
                 </li>
               </ul>
+              <p class="card-text mb-1">
+                <span class="textOneSeller ">Description:</span>
+              </p>
+              <p>&nbsp; &nbsp; &nbsp; &nbsp; <%= finalResult.description %></p>
             </div>
           </div>
           <div class="col-12">
-            <p class="card-text">
-              Description: <br />
-              <%= finalResult.description %>
-            </p>
             <div class="col-12 d-flex flex-row justify-content-end gap-1">
               <p class="card-text flex-grow-1 mb-0 align-self-end">
                 <small class="text-dark">Last updated 23 mins ago</small>
               </p>
-              <a
-                href="/products/addProduct/<%= finalResult.seller_id %>"
-                class="btn btn-primary allSellerButton align-self-end"
+              <button
+                class="btn btn-success allSellerButton prodAddCartButton align-self-end"
+                onclick="showAddProductForm(1)"
               >
-                Add Product</a
+                Add Product
+              </button>
+
+              <button
+                class="btn btn_modify allSellerButton prodEditButton align-self-end"
+                onclick="showAddProductForm(2)"
               >
-              <a
-                href="/sellers/modifySeller/<%= finalResult.seller_id %>"
-                class="btn btn-primary allSellerButton align-self-end"
-              >
-                Modify</a
-              >
+                Modify
+              </button>
+
               <a
                 href="/sellers/logicDeleteSeller/<%= finalResult.seller_id %>"
-                class="btn btn-primary allSellerButton align-self-end"
+                class="btn btn-danger allSellerButton prodDeleteButton align-self-end"
               >
                 Delete</a
               >
             </div>
           </div>
         </div>
+        <div id="2" style="display: none;" class="mt-3">
+          <form
+            action="/sellers/modifySeller/<%= finalResult.seller_id %>"
+            method="post"
+            enctype="multipart/form-data"
+            class="col-12 pt-2"
+          >
+            <div
+              class="col-12 text-center d-flex flex-column align-items-center mb-0"
+            >
+              <h2 class="mb-2 text-dark">Modify your profile</h2>
+              <hr class="mb-2  allSellersHr" />
+            </div>
+            <div class=" d-flex flex-column align-items-center">
+              <div
+                class="d-flex justify-content-between gap-3 container2Inputs"
+              >
+                <!-- Name -->
+                <div class="form-floating mb-3">
+                  <input
+                    type="text"
+                    class="form-control inputEditSeller"
+                    id="name"
+                    placeholder="Name"
+                    name="name"
+                    value="<%= finalResult.name %>"
+                  />
+                  <label for="name">Name</label>
+                </div>
+                <!-- Last Name -->
+                <div class="form-floating mb-3">
+                  <input
+                    type="text"
+                    class="form-control inputEditSeller"
+                    id="last_name"
+                    placeholder="Last name"
+                    name="last_name"
+                    value="<%= finalResult.last_name %>"
+                  />
+                  <label for="last_name">Last name</label>
+                </div>
+              </div>
+
+              <!-- Phone number -->
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control inputEditSeller"
+                  id="phone_number"
+                  placeholder="Phone number"
+                  name="phone_number"
+                  value="<%= finalResult.phone_number %>"
+                />
+                <label for="phone_number">Phone number</label>
+              </div>
+
+              <!-- Description -->
+              <div class="form-floating">
+                <input
+                  type="text"
+                  class="form-control inputEditSeller"
+                  placeholder="Self description"
+                  id="description"
+                  name="description"
+                  value="<%= finalResult.description %>"
+                />
+                <label for="description">Description</label>
+              </div>
+
+              <div
+                class="d-flex justify-content-between gap-3 container2Inputs"
+              >
+                <div>
+                  <!-- Profile Img -->
+                  <div class="mb-3 inputFile">
+                    <label for="img" class="form-label"></label>
+                    <input
+                      class="form-control"
+                      type="file"
+                      id="img"
+                      name="img"
+                    />
+                  </div>
+                  <h4 class="text-danger">
+                    <%= typeof message != 'undefined' ? message : null %>
+                  </h4>
+                </div>
+                <button
+                  type="submit"
+                  class="btn prodAddCartButton btn-success align-self-end allSellerButton"
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div id="1" style="display: none;" class="mt-3">
+          <form
+            action="/products/addProduct/<%= finalResult.seller_id %>"
+            method="post"
+            enctype="multipart/form-data"
+            class="col-12 h-100 pt-2"
+          >
+            <div
+              class="col-12 text-center d-flex flex-column align-items-center mb-0"
+            >
+              <h2 class="mb-2 text-dark">Add new product</h2>
+              <hr class="mb-2  allSellersHr" />
+            </div>
+            <div class="d-flex flex-column align-items-center">
+              <!--Product Name -->
+              <div class="form-floating mb-2">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  placeholder="Product name"
+                  name="product_name"
+                />
+                <label for="name">Product name</label>
+              </div>
+              <div
+                class="d-flex justify-content-between gap-3 container2Inputs"
+              >
+                <!--Product Category -->
+                <div class="w-100">
+                  <label
+                    for="category"
+                    class="align-self-start  mb-1 text-white"
+                    >Category</label
+                  >
+                  <select name="category" id="category" class="selectAddProd">
+                    <option value=""></option>
+                    <option value="Funkos">Funkos</option>
+                    <option value="Comics">Comics</option>
+                    <option value="Board Games">Board Games</option>
+                    <option value="Clothes">Clothes</option>
+                    <option value="Merchandising">Merchandising</option>
+                  </select>
+                </div>
+                <!--Product Status -->
+                <div class="w-100 mb-2">
+                  <label for="status" class="align-self-start mb-1 text-white"
+                    >Status</label
+                  >
+                  <select name="status" id="status" class="selectAddProd">
+                    <option value=""></option>
+                    <option value="1">Very Good / Almost new</option>
+                    <option value="2">Good</option>
+                    <option value="3">Regular / OK</option>
+                    <option value="4">Bad</option>
+                    <option value="5">Repair needed</option>
+                  </select>
+                </div>
+                <!-- Price -->
+                <div class="form-floating align-self-end ">
+                  <input
+                    type="number"
+                    class="form-control "
+                    id="price"
+                    placeholder="Price"
+                    name="price"
+                    min="0"
+                  />
+                  <label for="price">Price</label>
+                </div>
+              </div>
+              <!-- Product description -->
+              <div class="form-floating">
+                <textarea
+                  class="form-control"
+                  placeholder="Product description"
+                  id="description"
+                  name="description"
+                ></textarea>
+                <label for="description">Product description</label>
+              </div>
+              <div
+                class="d-flex justify-content-between gap-3 container2Inputs"
+              >
+                <div>
+                  <!-- Profile Img -->
+                  <div class="mb-3 inputFile">
+                    <label for="img" class="form-label"></label>
+                    <input
+                      class="form-control"
+                      type="file"
+                      id="img"
+                      name="img"
+                    />
+                  </div>
+                  <h4 class="text-danger">
+                    <%= typeof message != 'undefined' ? message : null %>
+                  </h4>
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-success prodAddCartButton align-self-end allSellerButton"
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
-    <div class="col-12 text-start ps-5 my-3">
+    <div class="col-12 text-start">
       <% if(finalResult.products.length != 0 ){ %>
-      <div class="col-12 d-flex justify-content-between">
-        <h2 class="mb-0">Products:</h2>
-        <a href="/products/addProduct/<%= finalResult.seller_id %>"
-          ><button
-            class="btn btn-sm btn-outline-secondary bg-none registerButton me-1 addProductButton"
-          >
-            Add Product
-          </button></a
+      <div class="col-12 d-flex justify-content-between ">
+        <h2 class="mb-0 fw-bold">Products:</h2>
+
+        <button
+          onclick="showAddProductForm(1)"
+          class="btn btn-sm btn-outline-success prodAddCartButton bg-none registerButton me-1 addProductButton fw-bold"
         >
+          Add Product
+        </button>
       </div>
 
-      <hr class="allSellersHr" />
+      <hr class="allSellersHr mb-5" />
       <% } %>
     </div>
-    <div class="col-12 d-flex flex-wrap justify-content-center gap-3">
+
+    <div class="col-10 offset-1 d-flex flex-wrap justify-content-center gap-3">
       <% finalResult.products.forEach(product => { %>
 
-      <div class="card allSellersCard" style="width: 18rem">
-        <img
-          src="/images/products/<%= product.product_img %>"
-          class="card-img-top productImg mb-2"
-          alt="..."
-        />
+      <div
+        class="card allSellersCard oneSellerProductCard"
+        style="width: 18rem"
+      >
+        <a href="/products/oneProduct/<%= product.product_id %>">
+          <img
+            src="/images/products/<%= product.product_img %>"
+            class="card-img-top oneSellerproductImg mb-3 "
+            alt="..."
+          />
+        </a>
         <div class="card-body pt-0 d-flex flex-column align-items-start  w-100">
-          <h5 class="card-title"><%= product.product_name %></h5>
+          <h5 class="card-title fw-bold mb-0"><%= product.product_name %></h5>
           <hr class="allSellersHr mt-0" />
           <p class="card-text"><%= product.category %></p>
-          <p class="card-text "><%= product.description %></p>
+          <p class="card-text flex-fill"><%= product.description %></p>
           <div
             class="d-flex justify-content-end w-100 align-items-center gap-1"
           >
-            <p class="card-text mb-0 fw-bold flex-fill">
-              <%= product.price %> €
+            <p class="card-text mb-0 fw-bold text-center flex-fill fs-5">
+              <%= product.price %> <span class="colorDarkOrange fs-5"> €</span>
             </p>
             <a
               href="/products/modifyProduct/<%= product.product_id %>/<%= finalResult.seller_id %>"
-              class="btn btn-primary allSellerButton align-self-end"
+              class="btn  allSellerButton prodEditButton align-self-end"
             >
               Edit</a
             >
             <a
               href="/products/deleteProduct/<%= product.product_id %>/<%= finalResult.seller_id %>"
-              class="btn btn-primary allSellerButton align-self-end"
+              class="btn btn-danger  allSellerButton prodDeleteButton align-self-end"
             >
               Delete</a
             >

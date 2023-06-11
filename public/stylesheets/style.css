@@ -2,11 +2,22 @@
   box-sizing: border-box;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+* a {
+  text-decoration: none;
+  color: white;
+}
+* a:hover {
+  color: white;
+}
 * .allSellersHr {
   border-top: 2px solid #c78867;
   opacity: 1;
   width: 100%;
   margin-top: 0;
+}
+* .titleHr {
+  width: 50%;
+  opacity: 1;
 }
 * .registerButton {
   border-radius: 5px;
@@ -28,19 +39,30 @@
 }
 
 /* Navbar */
-nav .navbarTitle {
+.navbarTitle {
   font-family: "Eagle Lake", cursive;
   font-size: 30px;
   padding-right: 20px;
 }
 
+h1 {
+  font-family: "Eagle Lake", cursive;
+  font-weight: bold;
+}
+
+h2 {
+  font-family: "Eagle Lake", cursive;
+}
+
 /* Main */
 main {
   min-height: calc(100vh - 71.75px - 84px);
+  margin-top: 71.75px;
   background-color: darkslategray;
   background-image: url("../images/High_resolution_wallpaper_background_ID_77702110654-optimized.webp");
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
   padding: 3vh 0;
 }
 main form {
@@ -83,11 +105,15 @@ main form .card-title {
 }
 main .allSellersCard,
 main .allProdCard {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(214, 213, 213, 0.2);
   -webkit-backdrop-filter: blur(15px);
           backdrop-filter: blur(15px);
   color: rgb(220, 220, 220);
   border-radius: 15px;
+}
+main .allProdCard {
+  max-height: 350px;
+  min-width: 400px;
 }
 main .allSellerImg {
   transform: scale(0.9);
@@ -98,34 +124,78 @@ main .allSellerButton {
   background-color: #c78867;
   border: 1px outset #c78867;
   border-radius: 8px;
+  color: white;
 }
 main .allSellerButton:hover {
   background-color: #dc8556;
-  border: 1px outset black;
+  border: 1px outset white;
+}
+main .prodAddCartButton:hover {
+  background-color: #198754;
+  color: white;
+}
+main .prodDeleteButton:hover {
+  background-color: #dc3545;
+  color: white;
+}
+main .prodEditButton:hover {
+  background-color: rgb(255, 145, 0);
+  color: white;
 }
 main .addProductButton {
   background-color: #c78867;
-  color: black;
-  border-color: black;
+  color: white;
+  border: 1px outset #c78867;
 }
 main .oneProdImgCont {
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
+  padding: 0;
 }
-main .oneProdImg {
-  border-radius: 0;
-  transform: scale(1);
+main .allProductImgCont {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
-main .productImg {
+main .allProductImg {
+  max-height: 350px;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
+}
+main .oneProdImg {
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+main .oneSellerproductImg {
   border-start-start-radius: 15px;
   border-top-right-radius: 15px;
+  max-height: 250px;
+}
+main .oneSellerProductCard {
+  background-color: rgba(0, 0, 0, 0.1);
+  -webkit-backdrop-filter: blur(15px);
+          backdrop-filter: blur(15px);
+  color: rgb(220, 220, 220);
+  border-radius: 15px;
+}
+main .textOneSeller {
+  color: #683b23;
+  font-weight: 600;
+}
+main ul {
+  list-style: none; /* Remove default bullets */
+}
+main .oneSellerProductCard:hover,
+main .allProdCard:hover {
+  transition: 0.3s;
+  transform: translateZ(0);
+  scale: 1.048;
 }
 main .cardShoppingCart,
 main .totalCartContainer {
@@ -137,8 +207,14 @@ main .totalCartContainer {
   height: -moz-fit-content;
   height: fit-content;
 }
-main .CurrSymbol {
+main .colorDarkOrange,
+main .nav_category {
   color: #c16e41;
+}
+main .nav_category:hover,
+main .nav_category:active {
+  color: white;
+  border: none;
 }
 
 /* Footer */

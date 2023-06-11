@@ -1,7 +1,11 @@
 <%- include("navbar") %>
 <main class="container-fluid">
-  <h1>Login</h1>
+  
   <div class="row align-items-center justify-content-center ">
+    <div class="col-12 text-center d-flex flex-column align-items-center mb-0">
+      <h1 class="mb-0">Login</h1>
+      <hr class="mb-5 mt-0  titleHr" />
+    </div>
     <form
       action="/sellers/login"
       method="post"
@@ -41,7 +45,7 @@
         <%= typeof message != 'undefined' ? message : null %>
       </h4>
 
-      <button type="submit" class="btn btn-primary w-25 allSellerButton ">
+      <button type="submit" class="btn btn-success prodAddCartButton w-25 allSellerButton ">
         Submit
       </button>
     </form>

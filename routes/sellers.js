@@ -26,9 +26,6 @@ router.get("/oneSeller/:id", sellersControllers.viewOneSeller);
 //Delete Seller
 router.get("/logicDeleteSeller/:id", sellersControllers.logicDeleteSeller);
 
-//Form Modify seller;
-router.get("/modifySeller/:id", sellersControllers.viewFormModifySeller);
-
 //Modify Seller
 router.post(
   "/modifySeller/:id",

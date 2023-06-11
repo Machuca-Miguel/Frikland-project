@@ -1,7 +1,10 @@
 <%- include("navbar") %>
 <main class="container-fluid">
   <div class="row align-items-center justify-content-center">
-    <h1 class="col-12 text-center">Edit product:</h1>
+    <div class="col-12 text-center d-flex flex-column align-items-center mb-0">
+      <h1 class="mb-0">Edit product</h1>
+      <hr class="mb-5 mt-0  titleHr" />
+    </div>
     <form
       action="/products/modifyProduct/<%= result[0].product_id %>/<%= result[0].seller_id %>"
       method="post"
@@ -45,7 +48,7 @@
             >
             <select name="status" id="status" class="selectAddProd">
               <option value="<%= result[0].status %>">
-                <%= result[0].status %>
+                <%= status_product %>
               </option>
               <option value="1">Very Good / Almost new</option>
               <option value="2">Good</option>
@@ -94,7 +97,7 @@
 
         <button
           type="submit"
-          class="btn btn-primary align-self-end allSellerButton submitForm"
+          class="btn prodAddCartButton btn-success align-self-center allSellerButton w-25 "
         >
           Submit
         </button>
