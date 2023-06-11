@@ -6,10 +6,7 @@
       <hr class="mt-o mb-5 w-50" />
     </div>
     <div class="col-12 d-flex justify-content-center">
-      <div
-        class="card mb-3 allSellersCard p-3"
-        style="max-width: 35vw; height: fit-content"
-      >
+      <div class="card  allSellersCard p-3 col-4" style="height: fit-content">
         <div class="row g-0">
           <div class="col-md-4 mb-3">
             <img
@@ -20,9 +17,9 @@
           </div>
           <div class="col-md-8 mb-3">
             <div class="card-body">
-              <h5 class="card-title">
+              <h2 class="card-title">
                 <%= finalResult.name %> <%= finalResult.last_name %>
-              </h5>
+              </h2>
               <hr class="allSellersHr" />
               <p class="card-text">Contact:</p>
               <ul>
@@ -88,24 +85,36 @@
     <div class="col-12 d-flex flex-wrap justify-content-center gap-3">
       <% finalResult.products.forEach(product => { %>
 
-      <div class="card allSellersCard" style="max-width: 18rem">
+      <div class="card allSellersCard" style="width: 18rem">
         <img
           src="/images/products/<%= product.product_img %>"
           class="card-img-top productImg mb-2"
           alt="..."
         />
-        <div class="card-body pt-0 d-flex flex-column align-items-start w-100">
+        <div class="card-body pt-0 d-flex flex-column align-items-start  w-100">
           <h5 class="card-title"><%= product.product_name %></h5>
           <hr class="allSellersHr mt-0" />
           <p class="card-text"><%= product.category %></p>
-          <p class="card-text"><%= product.description %></p>
-          <p class="card-text text-end"><%= product.price %> €</p>
-          <a
-            href="/products/modifyProduct/<%= product.product_id %>"
-            class="btn btn-primary allSellerButton align-self-end"
+          <p class="card-text "><%= product.description %></p>
+          <div
+            class="d-flex justify-content-end w-100 align-items-center gap-1"
           >
-            Edit</a
-          >
+            <p class="card-text mb-0 fw-bold flex-fill">
+              <%= product.price %> €
+            </p>
+            <a
+              href="/products/modifyProduct/<%= product.product_id %>/<%= finalResult.seller_id %>"
+              class="btn btn-primary allSellerButton align-self-end"
+            >
+              Edit</a
+            >
+            <a
+              href="/products/deleteProduct/<%= product.product_id %>/<%= finalResult.seller_id %>"
+              class="btn btn-primary allSellerButton align-self-end"
+            >
+              Delete</a
+            >
+          </div>
         </div>
       </div>
 

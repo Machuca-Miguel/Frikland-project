@@ -1,0 +1,105 @@
+<%- include("navbar") %>
+<main class="container-fluid">
+  <div class="row align-items-center justify-content-center">
+    <h1 class="col-12 text-center">Edit product:</h1>
+    <form
+      action="/products/modifyProduct/<%= result[0].product_id %>/<%= result[0].seller_id %>"
+      method="post"
+      enctype="multipart/form-data"
+      class="col-4"
+    >
+      <div class="mb-3 d-flex flex-column align-items-center">
+        <!--Product Name -->
+        <div class="form-floating mb-2">
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            placeholder="Product name"
+            name="product_name"
+            value="<%= result[0].product_name %>"
+          />
+          <label for="name">Product name</label>
+        </div>
+        <div class="d-flex justify-content-between gap-3 container2Inputs">
+          <!--Product Category -->
+          <div class="w-100">
+            <label for="category" class="align-self-start  mb-1 text-white"
+              >Category</label
+            >
+            <select name="category" id="category" class="selectAddProd">
+              <option value="<%= result[0].category %>">
+                <%= result[0].category %>
+              </option>
+              <option value="Funkos">Funkos</option>
+              <option value="Comics">Comics</option>
+              <option value="Board Games">Board Games</option>
+              <option value="Clothes">Clothes</option>
+              <option value="Merchandising">Merchandising</option>
+            </select>
+          </div>
+          <!--Product Status -->
+          <div class="w-100 mb-2">
+            <label for="status" class="align-self-start mb-1 text-white"
+              >Status</label
+            >
+            <select name="status" id="status" class="selectAddProd">
+              <option value="<%= result[0].status %>">
+                <%= result[0].status %>
+              </option>
+              <option value="1">Very Good / Almost new</option>
+              <option value="2">Good</option>
+              <option value="3">Regular / OK</option>
+              <option value="4">Bad</option>
+              <option value="5">Repair needed</option>
+            </select>
+          </div>
+          <!-- Price -->
+          <div class="form-floating align-self-end ">
+            <input
+              type="number"
+              class="form-control "
+              id="price"
+              placeholder="Price"
+              name="price"
+              min="0"
+              value="<%= result[0].price %>"
+            />
+            <label for="price">Price</label>
+          </div>
+        </div>
+
+        <!-- Product description -->
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Product description"
+            id="description"
+            name="description"
+            value="<%= result[0].description %>"
+          />
+          <label for="description">Product description</label>
+        </div>
+
+        <!-- Profile Img -->
+        <div class="mb-3 inputFile">
+          <label for="img" class="form-label"></label>
+          <input class="form-control" type="file" id="img" name="img" />
+        </div>
+
+        <h4 class="text-danger">
+          <%= typeof message != 'undefined' ? message : null %>
+        </h4>
+
+        <button
+          type="submit"
+          class="btn btn-primary align-self-end allSellerButton submitForm"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</main>
+<%- include("footer") %>

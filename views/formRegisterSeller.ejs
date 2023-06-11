@@ -1,7 +1,7 @@
 <%- include("navbar") %>
 <main class="container-fluid">
   <div class="row align-items-center justify-content-center">
-    <h1 class="col-12 text-center">Home</h1>
+    <h1 class="col-12 text-center">New seller registration</h1>
     <form
       action="/sellers/registerNewSeller"
       method="post"
@@ -9,57 +9,59 @@
       class="col-4"
     >
       <div class="mb-3 d-flex flex-column align-items-center">
-        <!-- Name -->
-        <div class="form-floating mb-3">
-          <input
-            type="text"
-            class="form-control"
-            id="name"
-            placeholder="Name"
-            name="name"
-          />
-          <label for="name">Name</label>
-        </div>
-        <!-- Last Name -->
-        <div class="form-floating mb-3">
-          <input
-            type="text"
-            class="form-control"
-            id="last_name"
-            placeholder="Last name"
-            name="last_name"
-          />
-          <label for="last_name">Last name</label>
-        </div>
-
-        <!-- Email -->
-        <div class="form-floating">
-          <input
-            type="email"
-            class="form-control"
-            id="email"
-            placeholder="email@example.com"
-            name="email"
-          />
-          <label for="email">Email</label>
+        <div class="d-flex justify-content-between gap-3 container2Inputs">
+          <!-- Name -->
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              placeholder="Name"
+              name="name"
+            />
+            <label for="name">Name</label>
+          </div>
+          <!-- Last Name -->
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="last_name"
+              placeholder="Last name"
+              name="last_name"
+            />
+            <label for="last_name">Last name</label>
+          </div>
         </div>
 
-        <div id="emailHelp" class="form-text">
-          We'll never share your email with anyone else.
-        </div>
+        <div class="d-flex justify-content-between gap-3 container2Inputs">
+          <!-- Email -->
+          <div class="form-floating">
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              placeholder="email@example.com"
+              name="email"
+            />
+            <label for="email">Email*</label>
+          </div>
 
-        <!-- Password -->
-        <div class="form-floating mb-3">
-          <input
-            type="password"
-            class="form-control"
-            id="floatingPassword"
-            placeholder="Password"
-            name="password"
-          />
-          <label for="floatingPassword">Password</label>
+          <!-- Password -->
+          <div class="form-floating mb-0">
+            <input
+              type="password"
+              class="form-control"
+              id="floatingPassword"
+              placeholder="Password"
+              name="password"
+            />
+            <label for="floatingPassword">Password</label>
+          </div>
         </div>
-
+        <div id="emailHelp" class="form-text text-white">
+          *We'll never share your email with anyone else.
+        </div>
         <!-- Phone number -->
         <div class="form-floating mb-3">
           <input
@@ -83,22 +85,24 @@
           <label for="description">Description</label>
         </div>
 
-        <!-- Profile Img -->
-        <div class="mb-3 inputFile">
-          <label for="img" class="form-label"></label>
-          <input class="form-control" type="file" id="img" name="img" />
+        <div class="d-flex justify-content-between gap-3 container2Inputs">
+          <div>
+            <!-- Profile Img -->
+            <div class="mb-3 inputFile">
+              <label for="img" class="form-label"></label>
+              <input class="form-control" type="file" id="img" name="img" />
+            </div>
+            <h4 class="text-danger">
+              <%= typeof message != 'undefined' ? message : null %>
+            </h4>
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary align-self-end allSellerButton "
+          >
+            Submit
+          </button>
         </div>
-
-        <h4 class="text-danger">
-          <%= typeof message != 'undefined' ? message : null %>
-        </h4>
-
-        <button
-          type="submit"
-          class="btn btn-primary align-self-end allSellerButton submitForm"
-        >
-          Submit
-        </button>
       </div>
     </form>
   </div>

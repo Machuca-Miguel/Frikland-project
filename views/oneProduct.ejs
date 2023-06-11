@@ -1,0 +1,64 @@
+<%- include("navbar") %>
+<main class="container-fluid">
+  <div class="row">
+    <div class="col-12 text-center d-flex flex-column align-items-center mb-0">
+      <h1 class="mb-0">Product Info</h1>
+      <hr class="mt-o mb-5 w-50" />
+    </div>
+    <div class="col-12 d-flex justify-content-center">
+      <div
+        class="card  allSellersCard  col-6 h-100"
+        style="height: fit-content"
+      >
+        <div class="row g-0 h-100">
+          <div class="col-md-4  mb-2 oneProdImgCont h-100">
+            <img
+              src="/images/products/<%= result[0].product_img %>"
+              class="img-fluid oneProdImg allSellerImg  h-100"
+              alt="Product image"
+            />
+          </div>
+          <div class="col-md-8 mb-3 h-100">
+            <div class="card-body h-100 d-flex flex-column">
+              <h2 class="card-title"><%= result[0].product_name %></h2>
+              <hr class="allSellersHr" />
+              <p class="card-text">
+                Category: <br />
+                &nbsp;&nbsp; <%= result[0].category %>
+              </p>
+
+              <p class="card-text">
+                Status: <br />
+                &nbsp;&nbsp; <%= result[0].status %>
+              </p>
+
+              <p class="card-text flex-fill">
+                Description: <br />
+                &nbsp;&nbsp; <%= result[0].description %>
+              </p>
+              <p class="card-text text-end fs-3">
+                <%= result[0].price %> <span class="CurrSymbol fs-3"> €</span>
+              </p>
+              <div class="col-12 d-flex flex-row   justify-content-end gap-1">
+                <p class="card-text flex-grow-1 mb-0 align-self-end">
+                  <small class="text-dark">Last updated 23 mins ago</small>
+                </p>
+                <a
+                  href="/products/addToCart/<%= result[0].product_id %>"
+                  class="btn btn-primary allSellerButton d-flex align-items-end <%= result[0].added_cart %>"
+                >
+                  Add &nbsp;
+                  <span class="material-symbols-outlined">
+                    shopping_cart
+                  </span></a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-12"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<%- include("footer") %>

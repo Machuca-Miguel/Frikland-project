@@ -61,6 +61,33 @@ class SellersControllers {
     }
   };
 
+  showLogin = (req, res) => {
+    res.render("login");
+  };
+
+  login = (req, res) => {
+    let { email, password } = req.body;
+
+    let sql = `SELECT * from seller WHERE deleted = 0 AND email = "${email}"`;
+
+    connectionSQL.query(sql, (err, result) => {
+      if (err) throw err;
+      if (result.length == 1) {
+        let hash = result[0].password;
+
+        bcrypt.compare(password, hash, (error, resultComp) => {
+          if (resultComp) {
+            res.redirect(`/sellers/oneSeller/${result[0].seller_id}`);
+          } else {
+            res.render("login", { message: "Wrong gmail or password" });
+          }
+        });
+      } else {
+        res.render("login", { message: "Wrong gmail or password" });
+      }
+    });
+  };
+
   viewOneSeller = (req, res) => {
     let id = req.params.id;
 
@@ -132,12 +159,12 @@ class SellersControllers {
 
     let { name, last_name, phone_number, description } = req.body;
 
-    let sql = `UPDATE seller SET name = "${name}", last_name = "${last_name}", phone_number = "${phone_number}", description = "${description}"`;
+    let sql = `UPDATE seller SET name = "${name}", last_name = "${last_name}", phone_number = "${phone_number}", description = "${description}" WHERE seller_id = ${id}`;
 
     if (req.file != undefined) {
       let img = req.file.filename;
 
-      sql = `UPDATE seller SET name = "${name}", last_name = "${last_name}", phone_number = "${phone_number}", description = "${description}", profile_img = "${img}"`;
+      sql = `UPDATE seller SET name = "${name}", last_name = "${last_name}", phone_number = "${phone_number}", description = "${description}", profile_img = "${img}" WHERE seller_id = ${id}`;
     }
 
     connectionSQL.query(sql, (err, result) => {

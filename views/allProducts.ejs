@@ -1,31 +1,70 @@
 <%- include("navbar") %>
 <main class="container-fluid">
-  <div class="row">
-    <div class="col-12 text-center"><h1>All Our Sellers</h1></div>
-    <div class="col-12 d-flex flex-wrap gap-3 justify-content-center py-2 px-5">
-      <% result.forEach((product) => {%>
-      <div class="card allSellersCard" style="max-width: 18rem">
-        <img
-          src="/images/avatars/<%= product.product_img %>"
-          class="card-img-top allSellerImg"
-          alt="..."
-        />
-        <div class="card-body pt-0 d-flex flex-column align-items-start w-100">
-          <h5 class="card-title"><%= product.name %></h5>
-          <hr class="allSellersHr mt-0" />
-          <p class="card-text"><%= product.category %></p>
-          <p class="card-text"><%= product.status %></p>
+  <div class="row flex-wrap gap-3 justify-content-center">
+    <h1 class="text-center col-12">All Our Products</h1>
+    <% result.forEach((product) => {%>
 
-          <p class="card-text"><%= product.price %></p>
-          <p class="card-text"><%= product.description %></p>
+    <div
+      class="card allProdCard <%= product.added_cart %> col-12 col-md-5 col-lg-3 p-0"
+    >
+      <div class="row g-0 h-100">
+        <div class="col-md-6 h-100 ">
+          <img
+            src="/images/products/<%= product.product_img %>"
+            class="img-fluid rounded-start productImg h-100"
+            alt="Product image"
+          />
+        </div>
+        <div class="col-md-6 h-100">
+          <div class="card-body h-100 d-flex flex-column">
+            <h5 class="card-title mb-0"><%= product.product_name %></h5>
+            <hr class="allSellersHr mt-0" />
+            <p class="card-text">
+              Category: <br />
+              &nbsp; &nbsp; <%= product.category %>
+            </p>
+            <p class="card-text">
+              Status: <br />
+              &nbsp; &nbsp; <%= product.status %>
+            </p>
 
-          <a href="/" class="btn btn-primary allSellerButton align-self-end">
-            Add <i class="fa-regular fa-cart-shopping"></i
-          ></a>
+            <p class="card-text flex-fill">
+              Description: <br />
+              &nbsp; &nbsp; <%= product.description %>
+            </p>
+
+            <div class="d-flex justify-content-between">
+              <p class="mb-0 "><%= product.added_cart %></p>
+              <p class="card-text text-end fs-5">
+                <%= product.price %> <span class="CurrSymbol fs-5"> €</span>
+              </p>
+            </div>
+            <div
+              class="col-12 d-flex flex-row justify-content-end align-items-end gap-1"
+            >
+              <!-- <h5><%= typeof message != 'undefined' ? message : null %></h5> -->
+
+              <a
+                href="/products/oneProduct/<%= product.product_id %>"
+                class="btn btn-primary allSellerButton d-flex align-items-end p-2 <%= product.added_cart %>"
+              >
+                More Info</a
+              >
+              <a
+                href="/products/addToCart/<%= product.product_id %>"
+                class="btn btn-primary allSellerButton d-flex align-items-end <%= product.added_cart %>"
+              >
+                Add &nbsp;
+                <span class="material-symbols-outlined">
+                  shopping_cart
+                </span></a
+              >
+            </div>
+          </div>
         </div>
       </div>
-      <% })%>
     </div>
+    <% })%>
   </div>
 </main>
 <%- include("footer") %>

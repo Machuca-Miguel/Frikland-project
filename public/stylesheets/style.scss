@@ -11,22 +11,38 @@
 
   .registerButton {
     border-radius: 5px;
+    height: 28px;
+
+    border-color: #6c757d;
   }
 
   .registerButton:hover {
     background-color: #dc8556;
     border: 1px outset black;
   }
+
+  .material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 20;
+    transform: scale(0.8);
+  }
+
+  .Added {
+    filter: brightness(0.5);
+    pointer-events: none;
+    cursor: default;
+  }
 }
 /* Navbar */
 nav {
   .navbarTitle {
     font-family: "Eagle Lake", cursive;
+    font-size: 30px;
+    padding-right: 20px;
   }
 }
 /* Main */
 main {
-  min-height: calc(100vh - 62.75px - 84px);
+  min-height: calc(100vh - 71.75px - 84px);
   background-color: darkslategray;
   background-image: url("../images/High_resolution_wallpaper_background_ID_77702110654-optimized.webp");
   background-size: cover;
@@ -35,8 +51,8 @@ main {
   padding: 3vh 0;
 
   form {
-    background-color: rgba(0, 0, 0, 0.121);
-    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.208);
+    backdrop-filter: blur(15px);
     padding: 3vh 0 1vh 0;
     border-radius: 15px;
 
@@ -62,15 +78,26 @@ main {
       transform: scaleY(1.25);
     }
     .selectAddProd {
-      height: 3rem;
+      height: 38px;
+      width: 100%;
+
+      border-radius: 6px;
+    }
+    label {
+      color: #6c757d;
+    }
+    .container2Inputs {
       width: 90%;
-      border-radius: 10px;
+    }
+    .card-title {
+      font-weight: bolder;
     }
   }
 
-  .allSellersCard {
-    background-color: rgba(255, 255, 255, 0.046);
-    backdrop-filter: blur(10px);
+  .allSellersCard,
+  .allProdCard {
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
     color: rgb(220, 220, 220);
     border-radius: 15px;
   }
@@ -78,7 +105,7 @@ main {
   .allSellerImg {
     transform: scale(0.9);
     border-radius: 100%;
-    filter: brightness(0.8);
+    filter: brightness(0.9);
   }
 
   .allSellerButton {
@@ -96,6 +123,36 @@ main {
     background-color: #c78867;
     color: black;
     border-color: black;
+  }
+  .oneProdImgCont {
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .oneProdImg {
+    border-radius: 0;
+    transform: scale(1);
+  }
+
+  .productImg {
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-start-start-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+
+  .cardShoppingCart,
+  .totalCartContainer {
+    background-color: rgba(0, 0, 0, 0.432);
+    backdrop-filter: blur(10px);
+    color: white;
+    width: 50%;
+    height: fit-content;
+  }
+
+  .CurrSymbol {
+    color: #c16e41;
   }
 }
 

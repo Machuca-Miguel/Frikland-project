@@ -4,6 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Frikland</title>
+    <!-- LINK GOOGLE ICONS -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
     <!-- LINK GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,10 +28,12 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
-      <div class="container-fluid ms-5">
-        <a class="navbar-brand navbarTitle fs-3" href="/">Frikland</a>
+      <div class="container-fluid ms-5 gap-2">
+        <a class="navbar-brand navbarTitle flex-fill flex-lg-grow-0" href="/"
+          >Frikland</a
+        >
         <button
-          class="navbar-toggler"
+          class="navbar-toggler registerButton"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
@@ -36,44 +43,32 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
+        <button
+          class="navbar-toggler registerButton pt-0"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="material-symbols-outlined"> shopping_cart </span>
+        </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 containerLinks">
             <li class="nav-item">
-              <a class="nav-link ms-5" href="/">Home</a>
+              <a class="nav-link " href="/">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link ms-5 d-lg-none" href="/">Register</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
+              <a class="nav-link  d-lg-none" href="/seller/registerSeller"
+                >Register</a
               >
-                Sellers
-              </a>
-              <ul class="dropdown-menu bg-dark border-top-0">
-                <li>
-                  <a
-                    class="dropdown-item text-muted fs-6"
-                    href="/sellers/allSellers"
-                    >All Sellers</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item text-muted" href="#"
-                    >Another action</a
-                  >
-                </li>
-                <li><hr class="dropdown-divider text-white" /></li>
-                <li>
-                  <a class="dropdown-item text-muted" href="#"
-                    >Something else here</a
-                  >
-                </li>
-              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="/sellers/allSellers">Sellers</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/products/allProducts">Products</a>
             </li>
 
             <li class="nav-item dropdown">
@@ -84,32 +79,57 @@
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Products
+                Categories
               </a>
               <ul class="dropdown-menu bg-dark border-top-0">
                 <li>
                   <a
                     class="dropdown-item text-muted fs-6"
-                    href="/products/allProducts"
-                    >All Products</a
+                    href="/products/category/Funkos"
+                    >Funkos</a
                   >
                 </li>
                 <li>
-                  <a class="dropdown-item text-muted" href="#"
-                    >Another action</a
+                  <a
+                    class="dropdown-item text-muted fs-6"
+                    href="/products/category/Comics"
+                    >Comics</a
                   >
                 </li>
-                <li><hr class="dropdown-divider text-white" /></li>
                 <li>
-                  <a class="dropdown-item text-muted" href="#"
-                    >Something else here</a
+                  <a
+                    class="dropdown-item text-muted fs-6"
+                    href="/products/category/Board Games"
+                    >Board Games</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item text-muted fs-6"
+                    href="/products/category/Merchandising"
+                    >Merchandising</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item text-muted fs-6"
+                    href="/products/category/Clothes"
+                    >Clothes</a
                   >
                 </li>
               </ul>
             </li>
           </ul>
         </div>
-        <form class="me-5 d-none d-lg-block" role="search">
+        <div class="me-5 d-none d-lg-block gap-2">
+          <a href="/sellers/login">
+            <button
+              class="btn btn-sm btn-outline-secondary bg-none registerButton"
+              type="button"
+            >
+              Login
+            </button></a
+          >
           <a href="/sellers/resgiterSeller">
             <button
               class="btn btn-sm btn-outline-secondary bg-none registerButton"
@@ -118,7 +138,15 @@
               Register
             </button></a
           >
-        </form>
+          <a href="/products/shoppingcart">
+            <button
+              class="btn btn-sm btn-outline-secondary bg-none registerButton align-items-center pt-0"
+              type="button"
+            >
+              <span class="material-symbols-outlined"> shopping_cart </span>
+            </button></a
+          >
+        </div>
       </div>
     </nav>
   </body>

@@ -15,6 +15,11 @@ router.post(
   sellersControllers.registerSeller
 );
 
+//Show Login Seller;
+router.get("/login", sellersControllers.showLogin);
+//Login Seller;
+router.post("/login", sellersControllers.login);
+
 //One seller.
 router.get("/oneSeller/:id", sellersControllers.viewOneSeller);
 

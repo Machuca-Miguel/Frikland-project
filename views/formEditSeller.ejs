@@ -9,29 +9,31 @@
       class="col-4"
     >
       <div class="mb-3 d-flex flex-column align-items-center">
-        <!-- Name -->
-        <div class="form-floating mb-3">
-          <input
-            type="text"
-            class="form-control inputEditSeller"
-            id="name"
-            placeholder="Name"
-            name="name"
-            value="<%= result[0].name %>"
-          />
-          <label for="name">Name</label>
-        </div>
-        <!-- Last Name -->
-        <div class="form-floating mb-3">
-          <input
-            type="text"
-            class="form-control inputEditSeller"
-            id="last_name"
-            placeholder="Last name"
-            name="last_name"
-            value="<%= result[0].last_name %>"
-          />
-          <label for="last_name">Last name</label>
+        <div class="d-flex justify-content-between gap-3 container2Inputs">
+          <!-- Name -->
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control inputEditSeller"
+              id="name"
+              placeholder="Name"
+              name="name"
+              value="<%= result[0].name %>"
+            />
+            <label for="name">Name</label>
+          </div>
+          <!-- Last Name -->
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control inputEditSeller"
+              id="last_name"
+              placeholder="Last name"
+              name="last_name"
+              value="<%= result[0].last_name %>"
+            />
+            <label for="last_name">Last name</label>
+          </div>
         </div>
 
         <!-- Phone number -->
@@ -60,22 +62,24 @@
           <label for="description">Description</label>
         </div>
 
-        <!-- Profile Img -->
-        <div class="mb-3 inputFile">
-          <label for="img" class="form-label"></label>
-          <input class="form-control" type="file" id="img" name="img" />
+        <div class="d-flex justify-content-between gap-3 container2Inputs">
+          <div>
+            <!-- Profile Img -->
+            <div class="mb-3 inputFile">
+              <label for="img" class="form-label"></label>
+              <input class="form-control" type="file" id="img" name="img" />
+            </div>
+            <h4 class="text-danger">
+              <%= typeof message != 'undefined' ? message : null %>
+            </h4>
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary align-self-end allSellerButton"
+          >
+            Submit
+          </button>
         </div>
-
-        <h4 class="text-danger">
-          <%= typeof message != 'undefined' ? message : null %>
-        </h4>
-
-        <button
-          type="submit"
-          class="btn btn-primary align-self-end allSellerButton submitForm"
-        >
-          Submit
-        </button>
       </div>
     </form>
   </div>
