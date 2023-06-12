@@ -1,9 +1,6 @@
-const { query } = require("express");
 const connectionSQL = require("../config/db");
 
 class ProductsControllers {
-  
-
   AddProduct = (req, res) => {
     let { seller_id } = req.params;
     let { product_name, category, status, price, description } = req.body;
@@ -15,10 +12,7 @@ class ProductsControllers {
       price === "" ||
       description === ""
     ) {
-      res.render("formAddProduct", {
-        message: "Every field must be filled",
-        id: seller_id,
-      });
+      res.redirect(`/sellers/oneSeller/${seller_id}`);
     } else if (req.file != undefined) {
       let img = req.file.filename;
 
@@ -29,10 +23,7 @@ class ProductsControllers {
         res.redirect(`/sellers/oneSeller/${seller_id}`);
       });
     } else {
-      res.render("formAddProduct", {
-        message: "Every field must be filled",
-        id: seller_id,
-      });
+      res.redirect(`/sellers/oneSeller/${seller_id}`);
     }
   };
 
@@ -45,7 +36,7 @@ class ProductsControllers {
     connectionSQL.query(sql, (err, result) => {
       if (err) throw err;
 
-      let status_product
+      let status_product;
 
       switch (result[0].status) {
         case 1:
@@ -65,7 +56,7 @@ class ProductsControllers {
           break;
       }
 
-      res.render("formEditProduct", { result , status_product });
+      res.render("formEditProduct", { result, status_product });
     });
   };
 
@@ -143,7 +134,7 @@ class ProductsControllers {
           : (prod.added_cart = null);
       });
 
-      res.render("allProducts", { result , title: "Products" });
+      res.render("allProducts", { result, title: "Products" });
     });
   };
 
@@ -261,7 +252,7 @@ class ProductsControllers {
           : (prod.added_cart = null);
       });
 
-      res.render("allProducts", { result , title:`${category}` });
+      res.render("allProducts", { result, title: `${category}` });
     });
   };
 }

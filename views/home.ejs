@@ -1,6 +1,213 @@
 <%- include("navbar") %>
-    <main>
-      <h1>Home</h1>
-      <p></p>
-    </main>
-    <%- include("footer") %>
+
+<main class="container-fluid ">
+  <!-- Slider -->
+  <div
+    id="carouselExampleControls"
+    class="carousel slide"
+    data-bs-ride="carousel"
+  >
+    <div class="carousel-inner carruselInt">
+      <div class="carousel-item active carruselIntDiv">
+        <div><h1 class="m-0">Board Games</h1></div>
+        <a href="/products/category/Board Games"
+          ><img src="/images/banner-games.jpg" class="d-block w-100" alt="..."
+        /></a>
+      </div>
+      <div class="carousel-item carruselIntDiv">
+        <div><h1 class="m-0">Funkos</h1></div>
+        <a href="/products/category/Funkos"
+          ><img src="/images/FUNKO-POPS.jpg" class="d-block w-100" alt="..."
+        /></a>
+      </div>
+      <div class="carousel-item carruselIntDiv">
+        <div><h1 class="m-0">Comics</h1></div>
+        <a href="/products/category/Comics"
+          ><img src="/images/comic_banner.jpg" class="d-block w-100" alt="..."
+        /></a>
+      </div>
+      <div class="carousel-item carruselIntDiv">
+        <div><h1 class="m-0">Merchandising</h1></div>
+        <a href="/products/category/Merchandising"
+          ><img src="/images/merchan2.jpg" class="d-block w-100" alt="..."
+        /></a>
+      </div>
+      <div class="carousel-item carruselIntDiv">
+        <div><h1 class="m-0">Clothes</h1></div>
+        <a href="/products/category/Clothes"
+          ><img
+            src="/images/clothes_banner.jpeg"
+            class="d-block w-100"
+            alt="..."
+        /></a>
+      </div>
+    </div>
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#carouselExampleControls"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carouselExampleControls"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <!-- Sellers -->
+  <div class="row mt-5">
+    <div class="col-12 text-center d-flex flex-column align-items-center mb-0">
+      <h1 class="mb-0 text-dark">Our Sellers</h1>
+      <hr class="mb-5 mt-0  titleHr" />
+    </div>
+    <div class="col-12 d-flex flex-wrap gap-3 justify-content-center py-2 px-5">
+      <% finalResult[0].forEach((profile) => {%>
+      <div class="card allSellersCard " style="max-width: 18rem;">
+        <img
+          src="/images/avatars/<%= profile.profile_img %>"
+          class="card-img-top allSellerImg"
+          alt="..."
+        />
+        <div class="card-body pt-0 d-flex flex-column align-items-start w-100">
+          <h5 class="card-title mb-0">
+            <%= profile.name %> <%= profile. last_name %>
+          </h5>
+          <hr class="allSellersHr mt-0" />
+          <p class="card-text"><%= profile.email %></p>
+          <p class="card-text flex-fill"><%= profile.phone_number %></p>
+          <a
+            href="/sellers/oneSeller/<%= profile.seller_id %>"
+            class="btn btn-secondary allSellerButton align-self-end"
+          >
+            More info</a
+          >
+        </div>
+      </div>
+      <% })%>
+    </div>
+  </div>
+  <!-- Products -->
+
+  <div class="row flex-wrap  justify-content-center rowAllProd">
+    <div class="col-12 text-center d-flex flex-column align-items-center mb-0">
+      <h1 class="mb-0">All Our Products</h1>
+      <hr class="mb-0 mt-0 w-50" />
+    </div>
+    <ul
+      class="nav bg-dark col-12   justify-content-evenly border-bottom-0 nav_category "
+    >
+      <li class="nav-item nav_category">
+        <a
+          class="nav-link  colorDarkOrange nav_category"
+          aria-current="page"
+          href="/products/category/Funkos"
+          >Funkos</a
+        >
+      </li>
+      <li class="nav-item nav_category">
+        <a
+          class="nav-link colorDarkOrange nav_category"
+          href="/products/category/Comics"
+          >Comics</a
+        >
+      </li>
+      <li class="nav-item nav_category">
+        <a
+          class="nav-link  colorDarkOrange nav_category"
+          href="/products/category/Board Games"
+          >Board Games</a
+        >
+      </li>
+      <li class="nav-item nav_category">
+        <a
+          class="nav-link  colorDarkOrange nav_category"
+          href="/products/category/Merchandising"
+          >Merchandising</a
+        >
+      </li>
+      <li class="nav-item nav_category">
+        <a
+          class="nav-link  colorDarkOrange nav_category"
+          href="/products/category/Clothes"
+          >Clothes</a
+        >
+      </li>
+    </ul>
+
+    <% finalResult[1].forEach((product) => {%>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-6  col-xxl-4 ">
+      <div class="card allProdCard h-100 <%= product.added_cart %>  p-0">
+        <div class="row g-0 h-100">
+          <div class="col-lg-6  allProductImgCont">
+            <a href="/products/oneProduct/<%= product.product_id %>">
+              <img
+                src="/images/products/<%= product.product_img %>"
+                class="  allProductImg "
+                alt="Product image"
+              />
+            </a>
+          </div>
+          <div class="col-lg-6   ">
+            <div class="card-body h-100 d-flex flex-column">
+              <h5 class="card-title mb-0 text-white">
+                <%= product.product_name %>
+              </h5>
+              <hr class="allSellersHr mt-0" />
+              <p class="card-text">
+                <span class="textOneSeller">Category:</span> <br />
+                &nbsp; &nbsp; <%= product.category %>
+              </p>
+              <p class="card-text">
+                <span class="textOneSeller">Status:</span> <br />
+                &nbsp; &nbsp; <%= product.status %>
+              </p>
+
+              <p class="card-text flex-fill">
+                <span class="textOneSeller">Description:</span> <br />
+                &nbsp; &nbsp; <%= product.description %>
+              </p>
+
+              <div class="d-flex justify-content-between">
+                <p class="mb-0 "><%= product.added_cart %></p>
+                <p class="card-text text-end mb-2 fs-5">
+                  <%= product.price %>
+                  <span class="colorDarkOrange fs-5"> €</span>
+                </p>
+              </div>
+              <div
+                class="col-12 d-flex flex-row justify-content-end align-items-end gap-1"
+              >
+                <!-- <h5><%= typeof message != 'undefined' ? message : null %></h5> -->
+
+                <a
+                  href="/products/oneProduct/<%= product.product_id %>"
+                  class="btn allSellerButton d-flex align-items-end p-2 <%= product.added_cart %>"
+                >
+                  More Info</a
+                >
+                <a
+                  href="/products/addToCart/<%= product.product_id %>"
+                  class="btn btn-success prodAddCartButton allSellerButton d-flex align-items-end <%= product.added_cart %>"
+                >
+                  Add &nbsp;
+                  <span class="material-symbols-outlined">
+                    shopping_cart
+                  </span></a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% })%>
+  </div>
+</main>
+<%- include("footer") %>

@@ -1,36 +1,52 @@
 <%- include("navbar") %>
 <main class="container-fluid">
-  <div class="row">
-    <div class="col-12 text-center"><h1>Shopping Cart</h1></div>
-    <div class="col-12 d-flex flex-column gap-3 align-items-center py-2 px-5">
-      <% let sum = 0 %> <% result.forEach((product) => {%> <% sum +=
-      product.price %>
-      <div class="card mb-3 cardShoppingCart">
+  <div class="row flex-wrap  justify-content-center rowAllProd">
+    <div
+      class="col-12 text-center d-flex flex-column align-items-center mb-2 pt-3 "
+    >
+      <h1 class="mb-0">Shopping Cart</h1>
+      <hr class="mb-0 mt-0 w-50" />
+    </div>
+    <% let sum = 0 %> <% result.forEach((product) => {%> <% sum += product.price
+    %>
+    <div
+      class="col-12 col-sm-6  col-md-5 col-lg-12 d-flex flex-column justify-content-center align-items-center  containerCart"
+    >
+      <div class="card cardShoppingCart h-100 mb-3">
         <div class="row g-0 h-100">
-          <div class="col-md-4 h-100">
+          <div class=" col-lg-3 col-xl-2  allProductImgCont">
             <img
               src="/images/products/<%= product.product_img %>"
-              class="img-fluid rounded-start"
+              class="allProductImg"
               alt="..."
             />
           </div>
-          <div class="col-md-8">
+          <div class=" col-lg-9 col-xl-10 ">
             <div class="card-body  d-flex flex-column h-100">
-              <h5 class="card-title"><%= product.product_name %></h5>
+              <h4 class="card-title"><%= product.product_name %></h4>
               <hr class="allSellersHr" />
-              <p class="card-text"><%= product.category %></p>
+              <p class="card-text">
+                <span class="colorDarkOrange">Category:</span> <br />
+                &nbsp;&nbsp;&nbsp;&nbsp; <%= product.category %>
+              </p>
               <p class="card-text"></p>
-
-              <p class="card-text flex-fill"><%= product.description %></p>
-              <p class="card-text align-self-end"><%= product.price %> €</p>
-
+              <p class="card-text flex-fill">
+                <span class="colorDarkOrange">Description:</span> <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;<%= product.description %>
+              </p>
+              <p class="card-text align-self-end fs-4">
+                <%= product.price %>
+                <span class="colorDarkOrange fs-5">€</span>
+              </p>
               <div class="d-flex justify-content-between">
                 <p class="card-text">
-                  <small class="text-muted"><%= product.status %></small>
+                  <small class="text-muted"
+                    >Product status: &nbsp;&nbsp;<%= product.status %></small
+                  >
                 </p>
                 <a
                   href="/products/removeProductCart/<%= product.product_id %>"
-                  class="btn btn-primary allSellerButton d-flex align-items-center"
+                  class="btn btn-danger allSellerButton prodDeleteButton d-flex align-items-center"
                 >
                   Remove
                   <span class="material-symbols-outlined">
@@ -42,15 +58,18 @@
           </div>
         </div>
       </div>
-      <% })%>
     </div>
-    <div class="col-12 d-flex justify-content-center py-2 px-5 ">
-      <div class=" totalCartContainer card mb-3 px-3">
+    <% })%>
+    <div class="col-12 d-flex justify-content-center   ">
+      <div class=" totalCartContainer card mb-5 px-3">
         <% if(result.length != 0 ){ %>
         <h3 class="mb-0 px-2 pt-2">Total</h3>
         <hr class="allSellersHr" />
         <h4 class="align-self-end pe-3">
-          <%= sum %> <span class="CurrSymbol fs-4">€</span>
+          <%= sum %>
+          <span class="CurrSymbol fs-4"
+            ><span class="colorDarkOrange fs-4">€</span></span
+          >
         </h4>
 
         <% } %>

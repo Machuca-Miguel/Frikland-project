@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Frikland</title>
     <!-- LINK JS -->
-    <script type="text/javascript"  src="/javascripts/utils/showHideForm.js" charset="UTF-8"></script>
+    <script
+      type="text/javascript"
+      src="/javascripts/utils/showHideForm.js"
+      charset="UTF-8"
+    ></script>
     <!-- LINK GOOGLE ICONS -->
     <link
       rel="stylesheet"
@@ -34,6 +38,19 @@
         <a class="navbar-brand navbarTitle flex-fill flex-lg-grow-0" href="/"
           >Frikland</a
         >
+        <a href="/products/shoppingcart">
+          <button
+            class="navbar-toggler registerButton pt-0"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="material-symbols-outlined"> shopping_cart </span>
+          </button>
+        </a>
         <button
           class="navbar-toggler registerButton"
           type="button"
@@ -45,21 +62,13 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <button
-          class="navbar-toggler registerButton pt-0"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="material-symbols-outlined"> shopping_cart </span>
-        </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 containerLinks">
             <li class="nav-item">
               <a class="nav-link " href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link  d-lg-none" href="/seller/login">Login</a>
             </li>
             <li class="nav-item">
               <a class="nav-link  d-lg-none" href="/seller/registerSeller"
@@ -151,5 +160,5 @@
         </div>
       </div>
     </nav>
-
-
+  </body>
+</html>

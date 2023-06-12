@@ -1,19 +1,26 @@
 <%- include("navbar") %>
 <main class="container-fluid">
   <div class="row">
-    <div class="col-12 text-center d-flex flex-column align-items-center mb-0">
+    <div
+      class="col-12 text-center d-flex flex-column align-items-center mb-2 pt-3"
+    >
       <h1 class="mb-0">
         <%= finalResult.name %> <%= finalResult.last_name %> profile
       </h1>
       <hr class="mb-5 mt-0  titleHr" />
     </div>
-    <div class="col-12 d-flex justify-content-center mb-3">
-      <div class="card  allSellersCard p-3 col-4" style="height: fit-content">
+    <div class="col-12 d-flex justify-content-center p-3 mb-3">
+      <div
+        class="card  allSellersCard p-3  col-sm-8  col-lg-6 col-xl-4"
+        style="height: fit-content"
+      >
         <div class="row g-0">
-          <div class="col-md-4 mb-3">
+          <div
+            class="col-md-4 mb-3 d-flex align-items-center justify-content-center"
+          >
             <img
               src="/images/avatars/<%= finalResult.profile_img %>"
-              class="img-fluid rounded-start allSellerImg"
+              class="img-fluid rounded-start allSellerImg "
               alt="..."
             />
           </div>
@@ -89,7 +96,7 @@
             </div>
             <div class=" d-flex flex-column align-items-center">
               <div
-                class="d-flex justify-content-between gap-3 container2Inputs"
+                class="d-flex  justify-content-between gap-3 container2Inputs"
               >
                 <!-- Name -->
                 <div class="form-floating mb-3">

@@ -60,18 +60,43 @@ h2 {
   font-family: "Eagle Lake", cursive;
 }
 
+.carruselInt {
+  height: 50vh;
+  .carruselIntDiv {
+    position: relative;
+    height: 100%;
+
+    img {
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      filter: brightness(0.9);
+    }
+
+    div {
+      z-index: 2;
+      position: absolute;
+      bottom: 50%;
+      left: 8vw;
+      color: #e1814e;
+      background-color: rgba(0, 0, 0, 0.537);
+      backdrop-filter: blur(15px);
+      padding: 2vh 2vw;
+      border-radius: 10px;
+    }
+  }
+}
+
 /* Main */
 main {
   min-height: calc(100vh - 71.75px - 84px);
-  margin-top: 71.75px;
+  margin-top: 71px;
 
   background-color: darkslategray;
   background-image: url("../images/High_resolution_wallpaper_background_ID_77702110654-optimized.webp");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-
-  padding: 3vh 0;
 
   form {
     background-color: rgba(0, 0, 0, 0.208);
@@ -116,6 +141,10 @@ main {
       font-weight: bolder;
     }
   }
+  .rowAllProd {
+    row-gap: 15px;
+    padding: 2vh 6vw;
+  }
 
   .allSellersCard,
   .allProdCard {
@@ -123,11 +152,6 @@ main {
     backdrop-filter: blur(15px);
     color: rgb(220, 220, 220);
     border-radius: 15px;
-  }
-
-  .allProdCard {
-    max-height: 350px;
-    min-width: 400px;
   }
 
   .allSellerImg {
@@ -167,12 +191,6 @@ main {
     border: 1px outset #c78867;
   }
 
-  .oneProdImgCont {
-    object-fit: cover;
-    object-position: center;
-    padding: 0;
-  }
-
   .allProductImgCont {
     object-fit: cover;
     object-position: center;
@@ -180,6 +198,9 @@ main {
 
   .allProductImg {
     max-height: 350px;
+    width: 100%;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
 
     height: 100%;
     object-fit: cover;
@@ -189,7 +210,11 @@ main {
   .oneProdImg {
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
+
   .oneSellerproductImg {
     border-start-start-radius: 15px;
     border-top-right-radius: 15px;
@@ -206,7 +231,7 @@ main {
     font-weight: 600;
   }
   ul {
-    list-style: none; /* Remove default bullets */
+    list-style: none;
   }
 
   .oneSellerProductCard:hover,
@@ -222,8 +247,9 @@ main {
     background-color: rgba(0, 0, 0, 0.432);
     backdrop-filter: blur(10px);
     color: white;
-    width: 50%;
-    height: fit-content;
+    width: 100%;
+
+    border-radius: 15px;
   }
 
   .colorDarkOrange,
@@ -235,6 +261,10 @@ main {
   .nav_category:active {
     color: white;
     border: none;
+  }
+  .imgHeight {
+    width: 100%;
+    max-height: 320px;
   }
 }
 
@@ -258,5 +288,22 @@ footer {
     .footerLogo:hover {
       transform: scale(1.2);
     }
+  }
+}
+
+@media (max-width: 991px) {
+  main {
+    .allProdCard {
+      max-width: 450px;
+    }
+    .allProductImg {
+      border-radius: 0 0 0 0;
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .cardheight {
+    height: fit-content;
   }
 }

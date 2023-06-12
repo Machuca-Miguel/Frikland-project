@@ -1,24 +1,23 @@
 <%- include("navbar") %>
 <main class="container-fluid">
-  <div class="row">
-    <div class="col-12 text-center d-flex flex-column align-items-center mb-0">
+  <div class="row  justify-content-center">
+    <div
+      class="col-12 text-center d-flex flex-column align-items-center mb-2 pt-3"
+    >
       <h1 class="mb-0">Product Info</h1>
       <hr class="mt-o mb-5 w-50" />
     </div>
-    <div class="col-12 d-flex justify-content-center">
-      <div
-        class="card  allSellersCard  col-6 h-100"
-        style="height: fit-content"
-      >
+    <div class="col-10 d-flex justify-content-center">
+      <div class="card  allSellersCard cardheight  col-xl-6 ">
         <div class="row g-0 h-100">
-          <div class="col-md-4  mb-2 oneProdImgCont h-100">
+          <div class=" col-sm-4 col-xxl-4   oneProdImgCont h-100">
             <img
               src="/images/products/<%= result[0].product_img %>"
-              class="img-fluid oneProdImg  h-100"
+              class="img-fluid oneProdImg imgHeight  h-100"
               alt="Product image"
             />
           </div>
-          <div class="col-md-8 mb-3 h-100">
+          <div class=" col-sm-8 col-xxl-8 mb-3 h-100">
             <div class="card-body h-100 d-flex flex-column">
               <h2 class="card-title"><%= result[0].product_name %></h2>
               <hr class="allSellersHr" />
@@ -37,7 +36,8 @@
                 &nbsp;&nbsp; <%= result[0].description %>
               </p>
               <p class="card-text text-end fs-3">
-                <%= result[0].price %> <span class="colorDarkOrange fs-3 fw-bold"> €</span>
+                <%= result[0].price %>
+                <span class="colorDarkOrange fs-3 fw-bold"> €</span>
               </p>
               <div class="col-12 d-flex flex-row   justify-content-end gap-1">
                 <p class="card-text flex-grow-1 mb-0 align-self-end">
