@@ -91,6 +91,7 @@ h2 {
 main {
   min-height: calc(100vh - 71.75px - 84px);
   margin-top: 71px;
+  padding: 0 0 4vh 0;
 
   background-color: darkslategray;
   background-image: url("../images/High_resolution_wallpaper_background_ID_77702110654-optimized.webp");
@@ -152,12 +153,24 @@ main {
     backdrop-filter: blur(15px);
     color: rgb(220, 220, 220);
     border-radius: 15px;
+    transition: transform 1s ease;
   }
+  
 
   .allSellerImg {
     transform: scale(0.9);
     border-radius: 100%;
     filter: brightness(0.9);
+    transition: transform 1.5s ease;
+  }
+
+  .allSellersCard:hover{
+    .allSellerImg{
+
+      transform: scale(1.005);
+    }
+
+    
   }
 
   .allSellerButton {
@@ -196,6 +209,13 @@ main {
     object-position: center;
   }
 
+  .hoverAllProdImg{
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;;
+    height: 300px;
+    overflow: hidden;
+  }
+
   .allProductImg {
     max-height: 350px;
     width: 100%;
@@ -205,7 +225,9 @@ main {
     height: 100%;
     object-fit: cover;
     object-position: center;
+    transition:transform 1s ease;
   }
+  
 
   .oneProdImg {
     border-top-left-radius: 15px;
@@ -236,10 +258,11 @@ main {
 
   .oneSellerProductCard:hover,
   .allProdCard:hover {
-    transition: 0.3s;
-    transform: translateZ(0);
+    
 
-    scale: 1.048;
+    .allProductImg{
+      transform: scale(1.2);
+    }
   }
 
   .cardShoppingCart,
@@ -248,6 +271,7 @@ main {
     backdrop-filter: blur(10px);
     color: white;
     width: 100%;
+    border: none;
 
     border-radius: 15px;
   }
@@ -296,8 +320,8 @@ footer {
     .allProdCard {
       max-width: 450px;
     }
-    .allProductImg {
-      border-radius: 0 0 0 0;
+    .allProductImg, .hoverAllProdImg {
+      border-radius: 15px 15px 0 0;
     }
   }
 }

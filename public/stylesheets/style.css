@@ -86,6 +86,7 @@ h2 {
 main {
   min-height: calc(100vh - 71.75px - 84px);
   margin-top: 71px;
+  padding: 0 0 4vh 0;
   background-color: darkslategray;
   background-image: url("../images/High_resolution_wallpaper_background_ID_77702110654-optimized.webp");
   background-size: cover;
@@ -141,11 +142,16 @@ main .allProdCard {
           backdrop-filter: blur(15px);
   color: rgb(220, 220, 220);
   border-radius: 15px;
+  transition: transform 1s ease;
 }
 main .allSellerImg {
   transform: scale(0.9);
   border-radius: 100%;
   filter: brightness(0.9);
+  transition: transform 1.5s ease;
+}
+main .allSellersCard:hover .allSellerImg {
+  transform: scale(1.005);
 }
 main .allSellerButton {
   background-color: #c78867;
@@ -180,6 +186,12 @@ main .allProductImgCont {
   -o-object-position: center;
      object-position: center;
 }
+main .hoverAllProdImg {
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  height: 300px;
+  overflow: hidden;
+}
 main .allProductImg {
   max-height: 350px;
   width: 100%;
@@ -190,6 +202,7 @@ main .allProductImg {
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
+  transition: transform 1s ease;
 }
 main .oneProdImg {
   border-top-left-radius: 15px;
@@ -219,11 +232,9 @@ main .textOneSeller {
 main ul {
   list-style: none;
 }
-main .oneSellerProductCard:hover,
-main .allProdCard:hover {
-  transition: 0.3s;
-  transform: translateZ(0);
-  scale: 1.048;
+main .oneSellerProductCard:hover .allProductImg,
+main .allProdCard:hover .allProductImg {
+  transform: scale(1.2);
 }
 main .cardShoppingCart,
 main .totalCartContainer {
@@ -232,6 +243,7 @@ main .totalCartContainer {
           backdrop-filter: blur(10px);
   color: white;
   width: 100%;
+  border: none;
   border-radius: 15px;
 }
 main .colorDarkOrange,
@@ -271,8 +283,8 @@ footer .containerLogo .footerLogo:hover {
   main .allProdCard {
     max-width: 450px;
   }
-  main .allProductImg {
-    border-radius: 0 0 0 0;
+  main .allProductImg, main .hoverAllProdImg {
+    border-radius: 15px 15px 0 0;
   }
 }
 @media (max-width: 575px) {

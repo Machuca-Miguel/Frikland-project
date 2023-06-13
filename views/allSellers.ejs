@@ -10,11 +10,15 @@
     <div class="col-12 d-flex flex-wrap gap-3 justify-content-center py-2 px-5">
       <% result.forEach((profile) => {%>
       <div class="card allSellersCard " style="max-width: 18rem;">
-        <img
-          src="/images/avatars/<%= profile.profile_img %>"
-          class="card-img-top allSellerImg"
-          alt="..."
-        />
+        <a href="/sellers/oneSeller/<%= profile.seller_id %>">
+          <div class="hoverAllSellerImg">
+            <img
+              src="/images/avatars/<%= profile.profile_img %>"
+              class="card-img-top allSellerImg"
+              alt="..."
+            />
+          </div>
+        </a>  
         <div class="card-body pt-0 d-flex flex-column align-items-start w-100">
           <h5 class="card-title mb-0">
             <%= profile.name %> <%= profile. last_name %>

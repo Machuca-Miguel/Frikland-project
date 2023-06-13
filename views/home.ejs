@@ -1,66 +1,66 @@
 <%- include("navbar") %>
-
-<main class="container-fluid ">
-  <!-- Slider -->
-  <div
-    id="carouselExampleControls"
-    class="carousel slide"
-    data-bs-ride="carousel"
-  >
-    <div class="carousel-inner carruselInt">
-      <div class="carousel-item active carruselIntDiv">
-        <div><h1 class="m-0">Board Games</h1></div>
-        <a href="/products/category/Board Games"
-          ><img src="/images/banner-games.jpg" class="d-block w-100" alt="..."
-        /></a>
-      </div>
-      <div class="carousel-item carruselIntDiv">
-        <div><h1 class="m-0">Funkos</h1></div>
-        <a href="/products/category/Funkos"
-          ><img src="/images/FUNKO-POPS.jpg" class="d-block w-100" alt="..."
-        /></a>
-      </div>
-      <div class="carousel-item carruselIntDiv">
-        <div><h1 class="m-0">Comics</h1></div>
-        <a href="/products/category/Comics"
-          ><img src="/images/comic_banner.jpg" class="d-block w-100" alt="..."
-        /></a>
-      </div>
-      <div class="carousel-item carruselIntDiv">
-        <div><h1 class="m-0">Merchandising</h1></div>
-        <a href="/products/category/Merchandising"
-          ><img src="/images/merchan2.jpg" class="d-block w-100" alt="..."
-        /></a>
-      </div>
-      <div class="carousel-item carruselIntDiv">
-        <div><h1 class="m-0">Clothes</h1></div>
-        <a href="/products/category/Clothes"
-          ><img
-            src="/images/clothes_banner.jpeg"
-            class="d-block w-100"
-            alt="..."
-        /></a>
-      </div>
+<main>
+<!-- Slider -->
+<div
+  id="carouselExampleControls"
+  class="carousel slide"
+  data-bs-ride="carousel"
+>
+  <div class="carousel-inner carruselInt">
+    <div class="carousel-item active carruselIntDiv">
+      <div><h1 class="m-0">Comics</h1></div>
+      <a href="/products/category/Comics"
+      ><img src="/images/comic_banner.jpg" class="d-block w-100" alt="..."
+      /></a>
     </div>
-    <button
-      class="carousel-control-prev"
-      type="button"
-      data-bs-target="#carouselExampleControls"
-      data-bs-slide="prev"
-    >
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button
-      class="carousel-control-next"
-      type="button"
-      data-bs-target="#carouselExampleControls"
-      data-bs-slide="next"
-    >
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
+    <div class="carousel-item carruselIntDiv">
+      <div><h1 class="m-0">Merchandising</h1></div>
+      <a href="/products/category/Merchandising"
+      ><img src="/images/merchan2.jpg" class="d-block w-100" alt="..."
+      /></a>
+    </div>
+    <div class="carousel-item carruselIntDiv">
+      <div><h1 class="m-0">Clothes</h1></div>
+      <a href="/products/category/Clothes"
+      ><img
+      src="/images/clothes_banner.jpeg"
+      class="d-block w-100"
+      alt="..."
+      /></a>
+    </div>
+    <div class="carousel-item  carruselIntDiv">
+      <div><h1 class="m-0">Board Games</h1></div>
+      <a href="/products/category/Board Games"
+        ><img src="/images/banner-games.jpg" class="d-block w-100" alt="..."
+      /></a>
+    </div>
+    <div class="carousel-item carruselIntDiv">
+      <div><h1 class="m-0">Funkos</h1></div>
+      <a href="/products/category/Funkos"
+        ><img src="/images/FUNKO-POPS.jpg" class="d-block w-100" alt="..."
+      /></a>
+    </div>
   </div>
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#carouselExampleControls"
+    data-bs-slide="prev"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#carouselExampleControls"
+    data-bs-slide="next"
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<section class="container-fluid">
   <!-- Sellers -->
   <div class="row mt-5">
     <div class="col-12 text-center d-flex flex-column align-items-center mb-0">
@@ -70,11 +70,13 @@
     <div class="col-12 d-flex flex-wrap gap-3 justify-content-center py-2 px-5">
       <% finalResult[0].forEach((profile) => {%>
       <div class="card allSellersCard " style="max-width: 18rem;">
-        <img
-          src="/images/avatars/<%= profile.profile_img %>"
-          class="card-img-top allSellerImg"
-          alt="..."
-        />
+        <a href="/sellers/oneSeller/<%= profile.seller_id %>">
+          <img
+            src="/images/avatars/<%= profile.profile_img %>"
+            class="card-img-top allSellerImg"
+            alt="..."
+          />
+        </a>
         <div class="card-body pt-0 d-flex flex-column align-items-start w-100">
           <h5 class="card-title mb-0">
             <%= profile.name %> <%= profile. last_name %>
@@ -98,7 +100,6 @@
   <div class="row flex-wrap  justify-content-center rowAllProd">
     <div class="col-12 text-center d-flex flex-column align-items-center mb-0">
       <h1 class="mb-0">All Our Products</h1>
-      <hr class="mb-0 mt-0 w-50" />
     </div>
     <ul
       class="nav bg-dark col-12   justify-content-evenly border-bottom-0 nav_category "
@@ -147,11 +148,13 @@
         <div class="row g-0 h-100">
           <div class="col-lg-6  allProductImgCont">
             <a href="/products/oneProduct/<%= product.product_id %>">
-              <img
-                src="/images/products/<%= product.product_img %>"
-                class="  allProductImg "
-                alt="Product image"
-              />
+              <div class="hoverAllProdImg">
+                <img
+                  src="/images/products/<%= product.product_img %>"
+                  class="  allProductImg "
+                  alt="Product image"
+                />
+              </div>
             </a>
           </div>
           <div class="col-lg-6   ">
@@ -175,11 +178,12 @@
               </p>
 
               <div class="d-flex justify-content-between">
-                <p class="mb-0 "><%= product.added_cart %></p>
-                <p class="card-text text-end mb-2 fs-5">
+                <!-- <p class="mb-0 "><%= product.added_cart %></p> -->
+                <p class="card-text w-100 text-end mb-2 fs-5">
                   <%= product.price %>
                   <span class="colorDarkOrange fs-5"> €</span>
                 </p>
+                
               </div>
               <div
                 class="col-12 d-flex flex-row justify-content-end align-items-end gap-1"
@@ -209,5 +213,6 @@
     </div>
     <% })%>
   </div>
+</section>
 </main>
 <%- include("footer") %>

@@ -81,6 +81,7 @@
             </div>
           </div>
         </div>
+        <!-- FORM EDIT SELLER -->
         <div id="2" style="display: none;" class="mt-3">
           <form
             action="/sellers/modifySeller/<%= finalResult.seller_id %>"
@@ -178,7 +179,7 @@
             </div>
           </form>
         </div>
-
+        <!-- FORM PRODUCT -->
         <div id="1" style="display: none;" class="mt-3">
           <form
             action="/products/addProduct/<%= finalResult.seller_id %>"
@@ -279,6 +280,13 @@
                   </h4>
                 </div>
                 <button
+                type="reset"
+                onclick="hideProductForm(1)"
+                class="btn btn-danger prodDeleteButton align-self-end allSellerButton"
+              >
+                Back
+              </button>
+                <button
                   type="submit"
                   class="btn btn-success prodAddCartButton align-self-end allSellerButton"
                 >
@@ -295,12 +303,15 @@
       <div class="col-12 d-flex justify-content-between ">
         <h2 class="mb-0 fw-bold">Products:</h2>
 
-        <button
-          onclick="showAddProductForm(1)"
-          class="btn btn-sm btn-outline-success prodAddCartButton bg-none registerButton me-1 addProductButton fw-bold"
-        >
-          Add Product
-        </button>
+        <a href="/products/addProduct/<%=
+        finalResult.seller_id %>">
+          <button
+            onclick="showAddProductForm(1)"
+            class="btn btn-sm btn-outline-success prodAddCartButton bg-none registerButton me-1 addProductButton fw-bold"
+          >
+            Add Product
+          </button>
+        </a>
       </div>
 
       <hr class="allSellersHr mb-5" />

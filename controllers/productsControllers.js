@@ -1,6 +1,13 @@
 const connectionSQL = require("../config/db");
 
 class ProductsControllers {
+
+  viewAddProductForm = (req, res) => {
+    let seller_id = req.params.seller_id;
+
+    res.render("formAddProduct",{ seller_id})
+  }
+
   AddProduct = (req, res) => {
     let { seller_id } = req.params;
     let { product_name, category, status, price, description } = req.body;
@@ -10,10 +17,12 @@ class ProductsControllers {
       category === "" ||
       status === "" ||
       price === "" ||
-      description === ""
+      description === "" ||
+      req.file == undefined
     ) {
-      res.redirect(`/sellers/oneSeller/${seller_id}`);
-    } else if (req.file != undefined) {
+      res.render("formAddProduct" , { message: "All field must be filled" , seller_id});
+    } else{
+     
       let img = req.file.filename;
 
       let sql = `INSERT INTO product (seller_id, product_name, category, status, price, description, product_img) VALUES ( ${seller_id} ,"${product_name}", "${category}" , ${status}, ${price} ,"${description}", "${img}")`;
@@ -22,8 +31,7 @@ class ProductsControllers {
         if (err) throw err;
         res.redirect(`/sellers/oneSeller/${seller_id}`);
       });
-    } else {
-      res.redirect(`/sellers/oneSeller/${seller_id}`);
+
     }
   };
 
@@ -175,19 +183,19 @@ class ProductsControllers {
       result.forEach((prod) => {
         switch (prod.status) {
           case 1:
-            prod.status = "Very Good / Almost new";
+            prod.status =STATUS_1;
             break;
           case 2:
-            prod.status = "Good";
+            prod.status = STATUS_2;
             break;
           case 3:
-            prod.status = "Regular / OK";
+            prod.status = STATUS_3;
             break;
           case 4:
-            prod.status = "Bad";
+            prod.status = STATUS_4;
             break;
           case 5:
-            prod.status = "Repair needed";
+            prod.status = STATUS_5;
             break;
         }
       });
@@ -229,19 +237,19 @@ class ProductsControllers {
       result.forEach((prod) => {
         switch (prod.status) {
           case 1:
-            prod.status = "Very Good / Almost new";
+            prod.status = STATUS_1;
             break;
           case 2:
-            prod.status = "Good";
+            prod.status = STATUS_2;
             break;
           case 3:
-            prod.status = "Regular / OK";
+            prod.status = STATUS_3;
             break;
           case 4:
-            prod.status = "Bad";
+            prod.status =STATUS_4;
             break;
           case 5:
-            prod.status = "Repair needed";
+            prod.status = STATUS_5;
             break;
         }
       });

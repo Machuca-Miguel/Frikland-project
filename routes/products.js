@@ -3,7 +3,10 @@ const router = express.Router();
 const multer = require("../middlewares/multer");
 const productsControllers = require("../controllers/productsControllers");
 
-
+router.get(
+  "/addProduct/:seller_id",
+  productsControllers.viewAddProductForm
+);
 // Add new product From Seller
 router.post(
   "/addProduct/:seller_id",
