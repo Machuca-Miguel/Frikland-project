@@ -1,6 +1,15 @@
 * {
   box-sizing: border-box;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  *::selection{
+    background-color: #dc8556;
+    color: white;
+  }
+  h1,h2,h3,h4,h5 {
+    font-family: "Eagle Lake", cursive;
+  
+
+  }
 
   a {
     text-decoration: none;
@@ -90,13 +99,13 @@ h2 {
 /* Main */
 main {
   min-height: calc(100vh - 71.75px - 84px);
-  margin-top: 71px;
+  margin-top: 71.75px;
   padding: 0 0 4vh 0;
 
   background-color: darkslategray;
   background-image: url("../images/High_resolution_wallpaper_background_ID_77702110654-optimized.webp");
   background-size: cover;
-  background-position: center;
+  background-position: top;
   background-attachment: fixed;
 
   form {
@@ -291,7 +300,13 @@ main {
     max-height: 320px;
   }
 }
-
+.backgroung_forms{
+  background-image:linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url("../images/sunlight-fantasy-art-sunset-artwork-sunrise-dragon-605950-wallhere.com.jpg")
+  ;
+  
+  
+ 
+}
 /* Footer */
 footer {
   .containerLogo {

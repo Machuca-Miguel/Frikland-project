@@ -8,7 +8,7 @@ router.get("/allSellers", sellersControllers.viewAllSellers);
 
 //register Seller Get
 router.get("/resgiterSeller", sellersControllers.viewRegisterSeller);
-//Post
+//Post register Seller
 router.post(
   "/registerNewSeller",
   multer("avatars"),
